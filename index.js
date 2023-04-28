@@ -1,14 +1,22 @@
-// [Show txt html]
+//& [Variables- 0:08:02]
+/* 
+// let, var es la vieja a no usar, o conts que es constante
+let fistName = "Bro;"
+let age = 21;
+let student = true;
+console.log("Hello", fistName);
+console.log("Yoy may be", age, "Years Old");
+console.log("Enrolled", student); */
+//& [Show txt html]
 /*document.getElementById("p1").innerHTML = "Hello Bro P1";
     document.getElementById("p2").innerHTML = "Hello Bro P2";
     document.getElementById("p3").innerHTML = "Hello Broo P3"; */
 
-// [Simple Prompt]
+//& [Simple Prompt - 0:21:14]
     /*
-
     let username = window.prompt("Whats Your Name?: ");
     console.log(username);*/
-// {Lil more abdvanced prompt}
+//& [User Input - 0:24:14]
 /*
     let unsername;
     document.getElementById("MyButton").onclick = function() {
@@ -17,9 +25,9 @@
         document.getElementById("MyLabel").innerHTML = "Welcome " + unsername;
     }
 */
-// [Type Convertion]     // 27:38 mins
+//& [Type Convertion]     // 27:38 mins
 /*
-    // El Window promot es siempre string al regresar, si lo combinamos con numeros nos actuaria tipo string
+    //+ El Window promot es siempre string al regresar, si lo combinamos con numeros nos actuaria tipo string
     let age = window.prompt("Enter Your Age: ");
     console.log("La VAriabler age es de tipo: " + typeof age);
     age = Number(age); // Sin esto, el age actuaria como string y joderia todo, pero con esto lo convertimos a int y listo, pa lante
@@ -39,7 +47,7 @@
     // EL boleano en string, da falso si esta vacia, verdadero si posee algo
     // Con numeros el 0 y 1
 */
-// [Constants]      // min 30:17
+//& [Constants]      // min 30:17
 /*
     // Se ua ser "Const" al inicializar la variable, 
     //en vez de var o let (let es mas seguro por cuestion de scope 
@@ -55,9 +63,9 @@
     circunference = 2 * PI * radious;
     console.log("The circunference of the circle is: " + circunference);
 */
-// [Math]       // min 33:31
+//& [Math]       // min 33:31
 /*
-    // Tiene que ser co el Math, m mayuscula o no agarra bien
+    // Tiene que ser con el Math, m mayuscula o no agarra bien, Math como tal es un objeto
     let x = -3.14;
     let y = 5
     let z = 9
@@ -79,13 +87,12 @@
     console.log(Math.PI);
     console.log(max, min);
 */
-// [Practica, Hipotenisa de u traingulo, pero con input del HTML]       // min36:66
-/*
-    let a; 
-    let b;
-    let c;
+//& [Practica, Hipotenisa de un traingulo, pero con input del HTML]       // min 36:66
 
-    document.getElementById("SubmitButton").onclick = function() {
+/* let a; 
+let b;
+let c;
+    document.getElementById("submitButton").onclick = function() {
         a = document.getElementById("aTextBox");
                     //console.log(typeof a); //Lo devuelve como objeto
         a = Number(a); 
@@ -95,30 +102,35 @@
                     // console.log(typeof b);
         b = Number(b);
                     // console.log(typeof b);
-        c = Number(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)));
+        c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
                     //console.log(typeof c);
 
-        document.getElementById("cLabel").innerHTML = "SideC: " + c;
-    }   // Theres a problem but npi
-*/
-// [Simple Counter]           //min 43:20
+        console.log("A: ",a);
+        console.log("B: ",b);
+        console.log("Before",c);
+        document.getElementById("cLabel").innerHTML = ("SideC: " + c);
+        console.log("After",c);
+    }   // Theres a problem but npi */
+
+//& [Simple Counter | HTML&CSS]           //min 43:20
 /* 
 let count = 0;
-document.getElementById("DecreaseButton").onclick = ()=>{
+
+document.getElementById("DecreaseButton").onclick = function(){
     count-=1;
     document.getElementById("CountLabel").innerHTML = count;
-}
-document.getElementById("ResetButton").onclick = ()=>{
+    }
+document.getElementById("ResetButton").onclick = function(){
     count = 0;
     document.getElementById("CountLabel").innerHTML = count;
-}
-document.getElementById("IncreaseButton").onclick = ()=>{
+    }
+document.getElementById("IncreaseButton").onclick = function(){
     count+=1;
     document.getElementById("CountLabel").innerHTML = count;
-}
-*/
+    } */
 
-// [Random Number in Js]       // Min 47:00
+
+//& [Random Number in Js]       // Min 47:00
 
 /* 
 // El Metodo random de JSON, genera un numero decimal entre 1 y 0, pero podemos "modificarlo" si ese numero lo multiplicamos por el numero que deseamos de posibilidades
@@ -142,9 +154,9 @@ document.getElementById("RollButton").onclick = ()=> {
     document.getElementById("yNumLabel").innerHTML = Math.floor(Math.random() * 6) + 1;
     document.getElementById("zNumLabel").innerHTML = Math.floor(Math.random() * 6) + 1;
 } 
-*/
+ */
 
-// [Useful String propeties & Methods] // Min 52:32
+//& [Useful String propeties & Methods | HTML] // Min 52:32
 
 /*
 let username = "  Bro Code  ";
@@ -166,7 +178,7 @@ PhoneNumb = PhoneNumb.replaceAll("/", ""); // Pa Eliminar seria asi, con vacio
 console.log(PhoneNumb);
 */
 
-// [Slice Method]   //Min 55:18
+//& [Slice Method]   //Min 55:18
 
 /* 
 // Extrae una seccion de un string dado, la return como un nuevo string, y no modifica el original
@@ -179,14 +191,14 @@ console.log(FirstName);
 console.log(LastName);
 // Pero, funciona con el "IndexOf"/"LastIndexOf"? vamos a ver
 
-LastName = FullName.slice(FullName.indexOf(" ") + 1); // se pone el +1, ya que el index regresado se suponees el espacio, y es lo que vamos a tratar de ignorar aqui
+LastName = FullName.slice(FullName.indexOf(" ") + 1); // se pone el +1, ya que el index regresado se suponees el espacio, y es lo que vamos a tratar de ignorar aqui, osease obtener el nombre despues de donde sea que esta el espacio
 FirstName = FullName.slice(0, FullName.lastIndexOf(" ")); // Mismo de arriba pero conel LastIndexOf
 console.log(FirstName);
-FirstName = FullName.slice(0, FullName.indexOf(" ")); // Tambien sirve poner el espacio directamente con el IndexOf EN ESTE CASO 
+FirstName = FullName.slice(0, FullName.indexOf(" ")); // Tambien sirve poner el espacio directamente con el IndexOf EN ESTE CASO, osease obtener el nombre antes de donde sea que esta el espacio de ultimo
 console.log(FirstName);
  */
 
-// [Method Chaining]    // Min 59:25
+//& [Method Chaining]    // Min 59:25
 /* 
 // Auto explicativo, llamar un metodo despues de otro, dentro de la misma linea de codigo
 
@@ -198,7 +210,7 @@ console.log(username);
 // igualamos pa que se modifique, y nuevamente damos la posicion especifica, la mandamos a mayuscula, y le hacemos trim a todo pa que quede bonito
  */
 
-// [If Statement in Js]       // Min 1:01:30
+//& [If Statement in Js]       // Min 1:01:30
 
 /* 
 let age = window.parseInt(window.prompt("Enter Ypur Age: "));
@@ -223,4 +235,85 @@ if (online){console.log("Youre online");
 } else {console.log("Youre Offline");}
  */
 
-// [Check propety of check boxes and radio buttons]       // Min 1:05:26 // Basicamente booleano si lacajita esta chekeada o no
+//& [Check propety of check boxes and radio buttons | HTML]       // Min 1:05:26 // Basicamente booleano si lacajita esta chekeada o no
+/* 
+document.getElementById("myButton").onclick = function(){
+    //+ Podemos meter mejor el "Elemento" en una variable, asi en vez de llamarla a cada rato, podemos solo usarla a traves de la variable  
+    const myCheckBox = document.getElementById("myCheckbox");
+    const visaBtn = document.getElementById("visaBtn");
+    const masterCardBtn = document.getElementById("mastercardBtn");
+    const paypalBtn = document.getElementById("paypalBtn");
+
+    if(myCheckBox.checked == true) {
+        console.log("You are Subbed");
+    } else {
+        console.log("You are Not Subbed");}
+
+    if(visaBtn.checked){console.log("You are Paying with a Visa");}
+    else if(masterCardBtn.checked){console.log("You are Paying with a Master Card");}
+    else if(paypalBtn.checked){console.log("You are Paying with a Paypal Card");}
+    else{console.log("You Must Select a Payment");}
+} */
+
+//& [Swithes | HTML    -   01:12:39]
+/* 
+let grade = 95;
+    //+ Podemos mirra mas que solo las cosas del switch, si no ver una condicion, y luego lo verdadero adentro tipo if
+switch (true) {
+    case grade >= 90:
+        console.log("Grade A, greate!");
+        break;
+    case grade >= 80:
+        console.log("Grade B, BUENO!");
+        break;
+    case grade >= 70:
+        console.log("Grade C, caray");
+        break;
+    case grade >= 60:
+        console.log("Grade D, Passed barely thx to the D");
+        break;
+    case grade >= 50:
+        console.log("Grade F, Failure!");
+        break;
+        default:
+        console.log("It not a grade!");
+        break;
+} */
+
+// &[AND && OR || operators |          -   01:16:26]
+// &[NOT ! operator  |          -   01:20:29]
+
+// &[While Loop  |          -   01:23:26]
+/*     // Existe el 
+    //      variable = window.promot("Enter Your Name");
+    // para obtener input */
+// &[Do While Loop  |          -   01:26:14]
+/*     //Basicamente para cuando algo puede estar falso de antemano
+    //osea que la condicion del while normal ya este como falsa */
+// &[For Loop  |          -   01:28:36]
+/*     for(let counter = 10; counter > 0; counter-=3){
+        console.log(counter);
+    } console.log("Happy New Year!");*/
+// &[Break & Continue  |          -   01:32:05]
+/* for (let i = 0; i <= 20; i++) {
+    if(i == 13){continue;}      //+ Se Salta 1 iteracion
+    if(i == 19){break;}         //+ Sale por Completo del Loop
+    console.log(i);
+} */
+// &[Nested Loop  |          -   01:33:34]
+/* let symbol = window.prompt("Enter a Symbol to use");
+let rows = window.prompt("Enter a # of rows");
+let columns= window.prompt("Enter a # of Columns");
+for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+        document.getElementById("myRectangle").innerHTML += symbol;
+    }
+    document.getElementById("myRectangle").innerHTML += "<br>";
+} */
+// &[Functions  |          -   01:38:05]
+// &[Ternary ? operator |          -   01:45:36]
+// &[template literals |          -   01:53:25]
+// &[format currency |          -   01:57:47]
+// &[number guessing game |          -   02:02:47]
+
+// &[END |          -   ]
