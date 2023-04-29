@@ -312,8 +312,63 @@ for (let i = 0; i < rows; i++) {
 } */
 // &[Functions  |          -   01:38:05]
 // &[Ternary ? operator |          -   01:45:36]
-// &[template literals |          -   01:53:25]
+/* 
+// El que nos deja hacer "If / else" dentro de la misma linea, mas corto y rapido par condiciones sencillas
+// condicion ? si es verdadero : si es falso
+let adult = checkAge(21);
+console.log(adult);
+function checkAge(age) {
+    return (age >= 18) ? true : false;    
+}
+
+checkWinner(true);
+
+function checkWinner(win){
+    win ? console.log("You Win") : console.log("You lose");
+} */
+
+// &[template literals | HTML         -   01:53:25]
+/* 
+// delimitadas con " ` ", permite tener "embedded" variables y expresiones, se pone el string tipo
+// (` Hello ${variable} `);
+//como el % en el c++, pero con todo tipo de varibales en un console.log pues
+// e igual que el uso de un string formatteado de python
+
+let userName = "Bro";
+let items = 3;
+let total = 75;
+console.log(`Hello ${userName}`);
+console.log(`You have ${items} items in your cart`);
+console.log(`Your total is $${total}`);
+// +Muy util para csas como esta:
+let text = `
+    Hello ${userName}
+    You have ${items} items in your cart
+    Your total is $${total}`;
+console.log(text);  //+ se imprimio con todo y los tabs de una, util tambien para los html
+document.getElementById("myLabel").innerHTML = text; */
 // &[format currency |          -   01:57:47]
-// &[number guessing game |          -   02:02:47]
+/* 
+//toLocaleString()  =   returna un string con una representacion "Sensible de lenguaje" de este numero
+// Basicamente pa Dinero   , es tipo:
+//  number.toLocaleString(locale, {options});
+//          locale = un lenguaje especficado, si no se pasa ninguno usara el default de la pc
+//          options = objeto con especificaciones de formato, basicamente decir que es el formato, dinero, una medida, % etc
+// parece que solo se puede formatear 1 vez no obstante, quizas por el tipo de formato que retorna, entonces cuidado al igualar variables
+// Quizas sea mejor manenerlas como tal, como variables y modificarlo donde sea necesario, peor no cambiar la variable/igualarla
+
+let myNum = .5;
+let myNum1 = 123456.789;
+let myNum2 = 100;
+console.log(myNum1.toLocaleString("en-US"));    //Ingles de estados unidos
+console.log(myNum1.toLocaleString("hi-IN"));    //Hindi
+console.log(myNum1.toLocaleString("de-DE"));    //German
+console.log(myNum1.toLocaleString("es-VE", {style: "currency", currency: "USD"}));
+console.log(myNum1.toLocaleString("hi-IN", {style: "currency", currency: "INR"}));
+console.log(myNum1.toLocaleString("de-DE", {style: "currency", currency: "EUR"}));
+console.log(myNum.toLocaleString(undefined, {style:"percent"}));    //+ Muestra el porcentaje de lo que sea que se metio, lo que daria la multiplicacion por eso pues de un numero "Total"
+console.log(myNum2.toLocaleString(undefined, {style:"unit", unit: "celsius"}));    //+ Muestra el tipo de unidad metido (celsios, km, m, miles etc ...)
+ */
+// &[number guessing game | HTML         -   02:02:47]
 
 // &[END |          -   ]
