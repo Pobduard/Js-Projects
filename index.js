@@ -311,6 +311,24 @@ for (let i = 0; i < rows; i++) {
     document.getElementById("myRectangle").innerHTML += "<br>";
 } */
 // &[Functions  |          -   01:38:05]
+/* 
+// Define codigo 1 vez, usalo muchas veces
+startProgram();
+function startProgram(){
+    let name = prompt("Enter a name");
+    let age = Math.round(parseFloat(prompt("Enter a age")));
+    happyBirthday(name, age);
+}
+
+
+function happyBirthday(name, age){
+    if(arguments.length > 2){throw new Error("Too many args");}
+    console.log(`Happy birthday to you!`);
+    console.log(`Happy birthday to you!`);
+    console.log(`Happy birthday dear ${name}!`);
+    console.log(`Happy birthday to you!`);
+    console.log(`Happy you are ${age} years old now WhooHOOO!`);
+} */
 // &[Ternary ? operator |          -   01:45:36]
 /* 
 // El que nos deja hacer "If / else" dentro de la misma linea, mas corto y rapido par condiciones sencillas
@@ -370,5 +388,18 @@ console.log(myNum.toLocaleString(undefined, {style:"percent"}));    //+ Muestra 
 console.log(myNum2.toLocaleString(undefined, {style:"unit", unit: "celsius"}));    //+ Muestra el tipo de unidad metido (celsios, km, m, miles etc ...)
  */
 // &[number guessing game | HTML         -   02:02:47]
+/* 
+const answer = Math.floor(Math.random() * 10 + 1);  //El random da entre 0 y 9 en eset caso, el +1 es pa que sea entre 1 y 10
+let guesses = 0;
+document.getElementById("submitButton").onclick = ()=>{
+    let guess = document.getElementById("guessField").value;
+    guesses++;
+    if(guess == answer){
+        alert(`${answer} is the correct #. It took you ${guesses} guesses`);
+    } else if(guess < answer){
+        alert("Too Smoll");}
+    else {
+        alert("Too large!");}
+} */
 
 // &[END |          -   ]
