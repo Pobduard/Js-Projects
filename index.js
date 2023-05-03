@@ -402,4 +402,100 @@ document.getElementById("submitButton").onclick = ()=>{
         alert("Too large!");}
 } */
 
+// &[temperature conversion program | HTML         -   02:06:55]
+/* document.getElementById("submitButton").onclick = ()=>{
+    let temp;
+    let label = document.getElementById("tempLabel");
+    temp = document.getElementById("textBox").value;    //still a String value
+    temp = Number(temp);
+
+    if(document.getElementById("cButton").checked){
+        temp = toCelsius(temp);
+        label.innerHTML = temp + "°C";
+    } else if(document.getElementById("fButton").checked){
+        temp = toFahrenheit(temp);
+        label.innerHTML = temp + "°F";
+    } else {
+        label.innerHTML = "Select a Unit";
+    }
+}
+
+function toCelsius(temp){
+    return (temp - 32) * (5/9);
+}
+function toFahrenheit(temp){
+    return (temp * 9/5 + 32);
+}
+ */
+
+// &[arrays  |          -   02:15:49]
+/* 
+// variable que puede guardar multiples valores, no 1 solo
+
+let fruits = ["apple", "orange", "banana"];
+console.log(fruits);
+console.log(fruits[3]);      //+ Si el elemento no existe, saldra como "undefined"
+fruits[0] = "coconut";
+console.log(fruits[0]);
+fruits.push("lemon");        //+ Añadimos un elemento, por lo atnto su tamaño aumenta
+console.log(fruits[fruits.length - 1]);     //+ Tamaño total -1 porque el array empieza en 0
+fruits.pop();               //+ Remueve el elemento final
+console.log(fruits[fruits.length - 1]);     //+ Tamaño total -1 porque el array empieza en 0
+fruits.unshift("mango");    //+ Añade elemento al unicio del array
+console.log(fruits[0]);
+fruits.shift();             //+ Remueve el 1er elemento
+console.log(fruits[0]);
+
+let length = fruits.length;  //+ Ver el tamaño total del array
+console.log("Tamaño:", length);
+let index = fruits.indexOf("orange");    //+ encontrar elemento dentro del array
+console.log("Posicion de orange:", index);   //+ Si el elemento no se encuentra, retorna el numero "-1"
+console.log("Posicion de apple:", fruits.indexOf("apple"));   //+ Si el elemento no se encuentra, retorna el numero "-1"
+ */
+
+// &[Arrays |          -   02:15:49]
+/* 
+//+ Podemos hacerlo a traves de un fori/for loop, o un "for of"
+let prices = [5, 10, 15, 20];
+prices.push(25);
+//+ Ir pa alante
+for (let i = 0; i < prices.length; i++) {
+    console.log(prices[i]);
+}
+//+ Ir pa atras
+for (let i = prices.length-1 ; i >= 0; i--) {   //+ i = tamaño total "Real"
+    console.log(prices[i]);
+}
+
+for (let price of prices) {     //+ Se escribe como el forEach de C++/Java
+    console.log(price);
+} */
+
+// &[sort an array of strings |          -   02:23:16]
+/* 
+let fruits = ["Bannana", "Apple", "Orange", "Mango"];
+fruits = fruits.sort();     //+ Lo regresara de forma alfabetica, pero dentro del propio sort CREO podemos modificar la forma de como se va a realizar dicho sort
+fruits = fruits.sort().reverse(); //+ El Reverse solo muta el array, volteando sus posiciones (Retorna el Array en Reverso)
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+ */
+// &[2D arrays |          -   02:24:50]
+// &[spread operator |          -   02:29:14]
+// &[rest parameters |          -   02:33:32]
+// &[callbacks  |          -   02:37:09]
+// &[array.forEach() |          -   02:41:58]
+// &[array.map() |          -   02:45:19]
+// &[array.filter() |          -   02:48:10]
+// &[array.reduce() |          -   02:50:21]
+// &[sort an array of numbers |          -   02:52:33]
+// &[function expressions |          -   02:54:41]
+// &[arrow function expressions |          -   02:59:55]
+// &[shuffle an array |          -   03:05:42]
+// &[nested functions |          -   03:09:30]
+// &[maps |          -   03:12:47]
+// &[objects  |          -   03:17:07]
+// &[this keyword |          -   03:21:09]
+// &[classes  |          -   03:24:08]
+// &[constructors |          -   03:27:15]
 // &[END |          -   ]
