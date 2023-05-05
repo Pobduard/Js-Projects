@@ -437,11 +437,11 @@ console.log(fruits);
 console.log(fruits[3]);      //+ Si el elemento no existe, saldra como "undefined"
 fruits[0] = "coconut";
 console.log(fruits[0]);
-fruits.push("lemon");        //+ Añadimos un elemento, por lo atnto su tamaño aumenta
+fruits.push("lemon");        //+ Añadimos un elemento, por lo tanto su tamaño aumenta
 console.log(fruits[fruits.length - 1]);     //+ Tamaño total -1 porque el array empieza en 0
 fruits.pop();               //+ Remueve el elemento final
 console.log(fruits[fruits.length - 1]);     //+ Tamaño total -1 porque el array empieza en 0
-fruits.unshift("mango");    //+ Añade elemento al unicio del array
+fruits.unshift("mango");    //+ Añade elemento al inicio del array
 console.log(fruits[0]);
 fruits.shift();             //+ Remueve el 1er elemento
 console.log(fruits[0]);
@@ -480,12 +480,143 @@ for (let fruit of fruits) {
     console.log(fruit);
 }
  */
+
 // &[2D arrays |          -   02:24:50]
+/* 
+//+ Array de Arrays
+
+let fruits = ["apples", "oranges", "bananas"];
+let vegetables = ["carrots", "onions", "potatoes"];
+let meats = ["eggs", "chicken", "fish"];
+
+let groceryList = [fruits, vegetables, meats]
+groceryList[2][0] = "steak";    //Cambiar valor del "egg"
+
+for(let list of groceryList){
+    for(let food of list){
+        console.log(food);
+    }
+}
+ */
+
 // &[spread operator |          -   02:29:14]
+/* 
+//+ spread operator = Permite que un itearble, como un array o string
+//+                      sea expandido en lugares donde 0 o mas argumentos son esperados
+//+                      Los "desempaca" a muchas piecas individuales.
+
+let userName = "Bro Code";
+let numbers = [1,2,3,4,5,6,7,8,9];
+console.log(...userName);
+console.log(...numbers);
+//+ Ejemplo de su uso, encontrar el valor mayor de un array, usando el metodo del la libreria Math
+console.log("Before unshift",Math.max(...numbers))  //+ le Pasamos TODOS los valores a la vez y lo encuentra de forma mas sencilla
+numbers.unshift(10);
+console.log("After unshift",Math.max(...numbers))
+
+//+ Ahora como si fueramos un profesor y tuvieramos 2 clases de esudiantes 
+//+ Queremos añadir los estudiantes de una clase a la otra:
+
+let class1 = ["SpongeBob", "Patrick", "Sandy"];
+let class2 = ["Squidward", "Mr.Krabs", "Plankton"];
+console.log(class1);
+class1.push(class2);       //+ como Js no le importa los tipos, hacemos que el elemento 4 sea TODO el array
+console.log(class1[class1.length-1]);
+//+ para juntarlos bien tocaria hacer tipo 
+class1.splice(3,1); //+ Quitar el "error"
+class1.push(...class2); //+ Añadirlo a lo bien
+console.log(class1);
+ */
+
 // &[rest parameters |          -   02:33:32]
-// &[callbacks  |          -   02:37:09]
+/* 
+//+ rest params = Representa un numero indefinido de parametros
+//+               (Empaca argumentos dentro de un array)
+
+let a = 1;
+let b = 2;
+let c = 3;
+let d = 4;
+let e = 50;
+
+console.log(sum(a,b,c,d,e));    //Muestra 57, porque el a, b no se sumo dentro del array al ser las 2 1ras posiciones
+
+function sum(x, y, ...numbers){
+    //+ Suma todos los numeros que se le pasen, el " ... " los empaca en un mismo array
+    //+ el cual de nombre lleva lo que pongamos despues de los " ... " tipo: " ...[nombre] "
+    //+ Si se combina con parametros normales, estos agarran los valores de sus posiciones respectivas
+    //+ a partir del ... agarra todo pal array
+
+    let total = 0;
+    for(let num of numbers){
+        total += num;
+    }
+    return total;
+}
+ */
+
+// &[callbacks  | HTML         -   02:37:09]
+/* 
+//+ callback = una funcion pasada como argumento a otra funcion
+//+             Usado para asegurar que una tarea se complete antes de correr una funcion (la porpia tarea la puede llamar en su final)
+//+             Ayuda con el codigo Asyncrono (cuando una funcion tiene que esperar a que otra termine) para ayudar a evitar problemas
+//+ A           y errores. Ejemplo "Espera q eu x Archivo se carge"
+
+//+ De esta forma llamamos la funcion, solo tenemos que pasar el nombre de la respectiva sin los " () " porque de esa forma es que se invoca
+sum(2,3, displayDOM);
+sum(2,3, displayConsole);
+
+//+ Esperamos el "callback" llamado "myFucn", y lo usamos con su cant de param correspondiente
+function sum(x, y, myFunc){
+    let result = x + y;
+    myFunc(result);
+}
+
+function displayConsole(output){
+    console.log(output);
+}
+
+function displayDOM(output){
+    document.getElementById("myLabel").innerHTML = output;
+}
+ */
+
 // &[array.forEach() |          -   02:41:58]
+/* 
+//+ array.forEach() = Ejecuta una funcion "callback" dada, 1 vez por cada posicion del array
+
+let students = ["spongeBob", "patrick", "squidward"];
+students.forEach(capitalize)
+students.forEach(print)
+
+function capitalize(element, index, array){ //+ Parametros del forEach()
+    array[index] = element[0].toUpperCase() + element.substring(1);   //+ element[0] para ir a la 1ra posicion del string | element.substring(1) para hacer un corte a partir del 1er elemento, asi "devolviendo" la palabra entera
+}
+
+function print(element){console.log(element);};
+
+console.log(students);
+ */
+
 // &[array.map() |          -   02:45:19]
+/* 
+//+ array.map() = Ejecuta un callback dado una vez por cada elemento del array
+//+                 Y crea un nuevo array en el proceso
+
+let numbers = [1,2,3,4,5];
+let squares = numbers.map(square);
+let cubes = numbers.map(cube);
+squares.forEach(print);
+console.log("[----]");
+cubes.forEach(print);
+
+function square(element){
+    return Math.pow(element, 2);}
+function cube(element){
+    return Math.pow(element, 3);}
+function print(element){console.log(element);}
+ */
+
 // &[array.filter() |          -   02:48:10]
 // &[array.reduce() |          -   02:50:21]
 // &[sort an array of numbers |          -   02:52:33]
