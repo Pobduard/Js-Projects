@@ -7,16 +7,21 @@ let student = true;
 console.log("Hello", fistName);
 console.log("Yoy may be", age, "Years Old");
 console.log("Enrolled", student); */
+
+
 //& [Show txt html]
 /*document.getElementById("p1").innerHTML = "Hello Bro P1";
     document.getElementById("p2").innerHTML = "Hello Bro P2";
     document.getElementById("p3").innerHTML = "Hello Broo P3"; */
 
+
 //& [Simple Prompt - 0:21:14]
     /*
     let username = window.prompt("Whats Your Name?: ");
     console.log(username);*/
-//& [User Input - 0:24:14]
+
+
+    //& [User Input - 0:24:14]
 /*
     let unsername;
     document.getElementById("MyButton").onclick = function() {
@@ -25,6 +30,8 @@ console.log("Enrolled", student); */
         document.getElementById("MyLabel").innerHTML = "Welcome " + unsername;
     }
 */
+
+
 //& [Type Convertion]     // 27:38 mins
 /*
     //+ El Window promot es siempre string al regresar, si lo combinamos con numeros nos actuaria tipo string
@@ -47,6 +54,8 @@ console.log("Enrolled", student); */
     // EL boleano en string, da falso si esta vacia, verdadero si posee algo
     // Con numeros el 0 y 1
 */
+
+
 //& [Constants]      // min 30:17
 /*
     // Se ua ser "Const" al inicializar la variable, 
@@ -63,6 +72,8 @@ console.log("Enrolled", student); */
     circunference = 2 * PI * radious;
     console.log("The circunference of the circle is: " + circunference);
 */
+
+
 //& [Math]       // min 33:31
 /*
     // Tiene que ser con el Math, m mayuscula o no agarra bien, Math como tal es un objeto
@@ -87,6 +98,8 @@ console.log("Enrolled", student); */
     console.log(Math.PI);
     console.log(max, min);
 */
+
+
 //& [Practica, Hipotenisa de un traingulo, pero con input del HTML]       // min 36:66
 
 /* let a; 
@@ -198,6 +211,7 @@ FirstName = FullName.slice(0, FullName.indexOf(" ")); // Tambien sirve poner el 
 console.log(FirstName);
  */
 
+
 //& [Method Chaining]    // Min 59:25
 /* 
 // Auto explicativo, llamar un metodo despues de otro, dentro de la misma linea de codigo
@@ -209,6 +223,7 @@ console.log(username);
 // Como es un string, y queremos cambiar una letra especifica, encontramos donde esta con el IndexOf, y modificamos ese solamente porque nohay necesidad de otros
 // igualamos pa que se modifique, y nuevamente damos la posicion especifica, la mandamos a mayuscula, y le hacemos trim a todo pa que quede bonito
  */
+
 
 //& [If Statement in Js]       // Min 1:01:30
 
@@ -235,6 +250,7 @@ if (online){console.log("Youre online");
 } else {console.log("Youre Offline");}
  */
 
+
 //& [Check propety of check boxes and radio buttons | HTML]       // Min 1:05:26 // Basicamente booleano si lacajita esta chekeada o no
 /* 
 document.getElementById("myButton").onclick = function(){
@@ -254,6 +270,7 @@ document.getElementById("myButton").onclick = function(){
     else if(paypalBtn.checked){console.log("You are Paying with a Paypal Card");}
     else{console.log("You Must Select a Payment");}
 } */
+
 
 //& [Swithes | HTML    -   01:12:39]
 /* 
@@ -281,25 +298,36 @@ switch (true) {
 } */
 
 // &[AND && OR || operators |          -   01:16:26]
+
+
 // &[NOT ! operator  |          -   01:20:29]
+
 
 // &[While Loop  |          -   01:23:26]
 /*     // Existe el 
     //      variable = window.promot("Enter Your Name");
     // para obtener input */
-// &[Do While Loop  |          -   01:26:14]
+
+
+    // &[Do While Loop  |          -   01:26:14]
 /*     //Basicamente para cuando algo puede estar falso de antemano
     //osea que la condicion del while normal ya este como falsa */
-// &[For Loop  |          -   01:28:36]
+
+
+    // &[For Loop  |          -   01:28:36]
 /*     for(let counter = 10; counter > 0; counter-=3){
         console.log(counter);
     } console.log("Happy New Year!");*/
-// &[Break & Continue  |          -   01:32:05]
+
+
+    // &[Break & Continue  |          -   01:32:05]
 /* for (let i = 0; i <= 20; i++) {
     if(i == 13){continue;}      //+ Se Salta 1 iteracion
     if(i == 19){break;}         //+ Sale por Completo del Loop
     console.log(i);
 } */
+
+
 // &[Nested Loop  |          -   01:33:34]
 /* let symbol = window.prompt("Enter a Symbol to use");
 let rows = window.prompt("Enter a # of rows");
@@ -310,6 +338,8 @@ for (let i = 0; i < rows; i++) {
     }
     document.getElementById("myRectangle").innerHTML += "<br>";
 } */
+
+
 // &[Functions  |          -   01:38:05]
 /* 
 // Define codigo 1 vez, usalo muchas veces
@@ -329,6 +359,8 @@ function happyBirthday(name, age){
     console.log(`Happy birthday to you!`);
     console.log(`Happy you are ${age} years old now WhooHOOO!`);
 } */
+
+
 // &[Ternary ? operator |          -   01:45:36]
 /* 
 // El que nos deja hacer "If / else" dentro de la misma linea, mas corto y rapido par condiciones sencillas
@@ -344,6 +376,7 @@ checkWinner(true);
 function checkWinner(win){
     win ? console.log("You Win") : console.log("You lose");
 } */
+
 
 // &[template literals | HTML         -   01:53:25] "alt+96"
 /* 
@@ -365,6 +398,8 @@ let text = `
     Your total is $${total}`;
 console.log(text);  //+ se imprimio con todo y los tabs de una, util tambien para los html
 document.getElementById("myLabel").innerHTML = text; */
+
+
 // &[format currency |          -   01:57:47]
 /* 
 //toLocaleString()  =   returna un string con una representacion "Sensible de lenguaje" de este numero
@@ -387,6 +422,8 @@ console.log(myNum1.toLocaleString("de-DE", {style: "currency", currency: "EUR"})
 console.log(myNum.toLocaleString(undefined, {style:"percent"}));    //+ Muestra el porcentaje de lo que sea que se metio, lo que daria la multiplicacion por eso pues de un numero "Total"
 console.log(myNum2.toLocaleString(undefined, {style:"unit", unit: "celsius"}));    //+ Muestra el tipo de unidad metido (celsios, km, m, miles etc ...)
  */
+
+
 // &[number guessing game | HTML         -   02:02:47]
 /* 
 const answer = Math.floor(Math.random() * 10 + 1);  //El random da entre 0 y 9 en eset caso, el +1 es pa que sea entre 1 y 10
@@ -401,6 +438,7 @@ document.getElementById("submitButton").onclick = ()=>{
     else {
         alert("Too large!");}
 } */
+
 
 // &[temperature conversion program | HTML         -   02:06:55]
 /* document.getElementById("submitButton").onclick = ()=>{
@@ -428,6 +466,7 @@ function toFahrenheit(temp){
 }
  */
 
+
 // &[arrays  |          -   02:15:49]
 /* 
 // variable que puede guardar multiples valores, no 1 solo
@@ -453,6 +492,7 @@ console.log("Posicion de orange:", index);   //+ Si el elemento no se encuentra,
 console.log("Posicion de apple:", fruits.indexOf("apple"));   //+ Si el elemento no se encuentra, retorna el numero "-1"
  */
 
+
 // &[Arrays |          -   02:15:49]
 /* 
 //+ Podemos hacerlo a traves de un fori/for loop, o un "for of"
@@ -471,6 +511,7 @@ for (let price of prices) {     //+ Se escribe como el forEach de C++/Java
     console.log(price);
 } */
 
+
 // &[sort an array of strings |          -   02:23:16]
 /* 
 let fruits = ["Bannana", "Apple", "Orange", "Mango"];
@@ -480,6 +521,7 @@ for (let fruit of fruits) {
     console.log(fruit);
 }
  */
+
 
 // &[2D arrays |          -   02:24:50]
 /* 
@@ -498,6 +540,7 @@ for(let list of groceryList){
     }
 }
  */
+
 
 // &[spread operator |          -   02:29:14]
 /* 
@@ -528,6 +571,7 @@ class1.push(...class2); //+ Añadirlo a lo bien
 console.log(class1);
  */
 
+
 // &[rest parameters |          -   02:33:32]
 /* 
 //+ rest params = Representa un numero indefinido de parametros
@@ -555,6 +599,7 @@ function sum(x, y, ...numbers){
 }
  */
 
+
 // &[callbacks  | HTML         -   02:37:09]
 /* 
 //+ callback = una funcion pasada como argumento a otra funcion
@@ -581,6 +626,7 @@ function displayDOM(output){
 }
  */
 
+
 // &[array.forEach() |          -   02:41:58]
 /* 
 //+ array.forEach() = Ejecuta una funcion "callback" dada, 1 vez por cada posicion del array
@@ -597,6 +643,7 @@ function print(element){console.log(element);};
 
 console.log(students);
  */
+
 
 // &[array.map() |          -   02:45:19]
 /* 
@@ -616,6 +663,7 @@ function cube(element){
     return Math.pow(element, 3);}
 function print(element){console.log(element);}
  */
+
 
 // &[array.filter() |          -   02:48:10]
 /*
@@ -638,6 +686,7 @@ function checkAge(element){
 }
 */
 
+
 // &[array.reduce() |          -   02:50:21]
 /*
 //+ array.reduce() = Reduce el array a 1 solo valor
@@ -652,6 +701,7 @@ function checkOut(total, element){
 				return total - element;
 }
 */
+
 
 // &[sort an array of numbers |          -   02:52:33]
 /*
@@ -676,6 +726,7 @@ function ascendingSort(x, y){
 }
 */
 
+
 // &[function expressions | HTML         -   02:54:41]
 /*
 //+ function expression = Una funcion sin un nombre ("Anonima"), evita "acaparar" el scope global con nombres.
@@ -697,6 +748,7 @@ document.getElementById("decreaseButton").onclick = function(){
 }
 */
 
+
 // &[arrow function expressions |          -   02:59:55]
 /* 
 //+ arrow function = compact alternative to a traditional function expression
@@ -716,6 +768,7 @@ let grades = [100, 50, 90, 60, 80, 70];
 grades.sort((x, y) => {return y-x;});
 grades.forEach((element) => console.log(element));
  */
+
 
 // &[shuffle an array |          -   03:05:42]
 /* 
@@ -739,6 +792,7 @@ function shuffle(array){
     }
     return array;
 } */
+
 
 // &[nested functions |          -   03:09:30]
 /* 
@@ -765,6 +819,7 @@ function login(){
     }
 }
  */
+
 
 // &[maps |          -   03:12:47]
 /* 
@@ -855,6 +910,7 @@ car2.drive();
 car2.break();
  */
 
+
 // &[this keyword |          -   03:21:09]
 /* 
 //+ this = Referencia para a un objeto particular (misma instancia de dicho objeto)
@@ -899,6 +955,7 @@ this.name = "MyCoolWindow";
 console.log(this , "this.name =", this.name);
  */
 
+
 // &[classes  |          -   03:24:08]
 /* 
 //+ class = Un "Plano" para crear objetos
@@ -936,5 +993,264 @@ player1.pause();
 player2.exit();
  */
 
+
 // &[constructors |          -   03:27:15]
+/*
+//+ constructor = Un metodo especial de una clase
+//+																																	acepta argumentos y aisgna propiedades
+
+class Student{
+				//+ Se escribe de esa forma
+				constructor(name, age, gpa){
+								this.name = name;
+								this.age = age;
+								this.gpa = gpa;
+				}
+				
+				study(){
+								console.log(`${this.name} is studying`)
+				}
+}
+
+const std1 = new Student("SpongeBob", 30, 3.2);
+const std2 = new Student("Patrick", 35, 1.5);
+const std3 = new Student("Sandy", 27, 4.0);
+
+console.log(std1.name, "\n", std1.age, "\n", std1.gpa);
+std1.study();
+
+console.log(std2.name, "\n", std2.age, "\n", std2.gpa);
+std2.study();
+
+console.log(std3.name, "\n", std3.age, "\n", std3.gpa);
+std3.study();
+*/
+
+
+// &[static keyword |          -   03:30:48]
+/*
+//+static = Pertenece a la clase, no al objeto (Usar clase, no es necesario instanciarla)
+//+          Propiedades: util para cache, configuracion predefinida
+//+          Metodos: util para funciones de utilidad (relacionadas con la propia clase)
+
+class Car{
+				//+ Como ejemplo haremos una propiedad, en la cual llevaremos el conteo de cuantos carros se han instanciado de la clase, a traves de irle sumando 1 cada vez que se instancie un objeto (a traves del constructor)
+				//+ Para hacerlo un atributo de la clase
+				static numberOfCars = 0;
+				
+				constructor(model){
+								this.model = model;
+								//+ Para modificar el dato Statico, se usa es [NombreClase].[Atributo]
+								Car.numberOfCars++;
+				}
+				
+				//+Para funciones
+				static startRace(){
+								console.log("3...2...1...GO!");
+				}
+}
+
+const car1 = new Car("Mustang");
+const car2 = new Car("Corvette");
+const car3 = new Car("BMW");
+
+// el car3 es indefinido, porque nuevamente, no accedemos a ninguna propiedad de objeto, accedemos es a una propiedad DE LA CLASE
+console.log(`Car1:${Car.numberOfCars} \nCar2:${Car.numberOfCars} \nCar3:${car3.numberOfCars}`);
+//Car1 y Car2 son iguales porque nuevamente, no es un numero de cada objeto, es de la clase que compone a ambos objetos
+
+car4 = new Car("Ferrari");
+car5 = new Car("McLaren");
+
+console.log("# Of Total Cars Created: "+ Car.numberOfCars);
+
+//+ Llamar metodo estatico
+Car.startRace();
+*/
+
+
+// &[inheritance  |          -   03:34:22]
+/*
+//+ inheritance = Un hijo de clase puede heredar todos los
+//+               Metodos y Propiedades de otra clase
+
+class Animal{
+				name = "";
+				alive = true;
+				
+				eat(){console.log(`This ${this.name} is Eating`);
+				}
+				sleep(){console.log(`This ${this.name} is Sleeping`);
+				}
+}
+
+class Rabbit extends Animal{
+				//+ Testing, it can be renamed/replaces/overwritten if we use it again in the child class
+				name = "rabbit";
+				
+				run(){console.log(`This ${this.name} is Running`);}
+}
+
+class Fish extends Animal{
+				
+				name = "fish";
+				
+				swim(){console.log(`This ${this.name} is Swimming`);}
+}
+
+class Hawk extends Animal{
+				
+				name = "hawk";
+				
+				fly(){console.log(`This ${this.name} is Flying`);}
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(rabbit.alive);
+fish.eat();
+hawk.sleep();
+
+rabbit.run();
+fish.swim();
+hawk.fly();
+*/
+
+
+// &[super keyword |          -   03:40:23]
+/*
+//+ super = Se refiere a la clase padre
+//+         Comunmente usado para "invocar" al constructor de la clase padre
+
+class Animal{
+				//+ Si ponemos este constructor como tal, codigo, en cada una de laa clases hijas, nos da error
+				//+ Creo el error es que una clase hija NEVECESITA llamar si o si al super en sh constructor, tiene sentido al ser hija despues de todo
+				constructor(name, age){
+								this.name = name;
+								this.age = age;
+				}
+}
+
+class Rabbit extends Animal{
+				constructor(name, age, runSpeed){
+								super(name, age);
+								this.runSpeed = runSpeed;
+				}
+}
+
+class Fish extends Animal{
+				constructor(name, age, swimSpeed){
+								super(name, age);
+								this.swimSpeed = swimSpeed;
+				}
+}
+
+class Hawk extends Animal{
+				constructor(name, age, flySpeed){
+								super(name, age);
+								this.flySpeed = flySpeed;
+				}
+}
+
+const rabbit = new Rabbit("rabbit", 1, 40);
+const fish = new Fish("fish", 2, 80);
+const hawk = new Hawk("hawk", 3, 200);
+
+console.log(`Rabbit: ${rabbit.name} | ${rabbit.age} | ${rabbit.runSpeed} |
+Fish: ${fish.name} | ${fish.age} | ${fish.swimSpeed} |
+Hawk: ${hawk.name} | ${hawk.age} | ${hawk.flySpeed}|`)
+*/
+
+
+// &[getters & setters |          -   03:44:59]
+/*
+//+ get = Ancla la propiedad de un objeto a una funcion
+//+       cuando esa propiedad ea accedida
+
+//+ set = ancla la propiedad de un objeto a una funcion
+//+       	cuando a esa propiedad se le asigna un valor
+
+class Car{
+				constructor(power){//Horse Power
+								//+ el " ._ " indica que esa es una propiedad/atributo "protegido"
+								this._power = power;
+								this._gas = 5;
+				}
+				
+				//+ el get no puede tener el mismo nombre de la propiedad/atributo
+				//+ Como es a travea se getter ahora, esta propiedad no se puede modificar de normal, pa eso habrianque acceder a ella con el ._ tambien
+				get power(){
+								//return this.power;
+								//+ Si se retorna asi, estariamos llamando al getter como tal, toca retornar es con el " ._ var " denuevo
+								
+								
+								return `${this._power}HorsePower`;
+								//+ Accedemos a la propiedas protegida ahora si, y aparte le podemoa meter logica extra
+				}
+				
+				get gas(){
+								//+ Digamos que el tanque tiene un espacio maximo de 50L
+								//+ Tons retornar cuantos litros y que porcentaje representa
+								return `${this._gas}L (${this._gas/50 * 100}%)`;
+				}
+				//+ Tiene setter, osease es modificable ahora si
+				set gas(value){
+								if(value >= 50){value = 50;}
+								else if(value < 0){value = 0;}
+								this._gas = value;
+				}
+}
+
+let car = new Car(400);
+
+car.gas = -1000000; //+ Para llanar la funcion del setter
+
+let demos = car.power; //+ Solo llamar al getter, no puede cambiar el valor por eso mismo, llama al getter, no accede a la propiedad en si
+
+car._power = 777; //+ Cambia, al usarse el ._ como ahora se debe gracias al getter
+
+car.power = 9999; //+ No cambia al no ser ._   ,  solo llama al getter sin mas
+
+
+
+//+ Pasa a llamar al getter de la propiedad
+console.log("Power", car.power);
+console.log("Demos", demos);
+console.log("Gas", car.gas); //+Retorna es el Getter, da igual si se llama con el uso de "()" o no
+*/
+
+
+// &[objects as arguments |          -   03:51:17]
+// &[array of objects |          -   03:53:44]
+// &[anonymous objects |          -   03:56:52]
+// &[error handling |          -   04:02:44]
+// &[setTimeout() |          -   04:07:27]
+// &[setInterval() |          -   04:12:16]
+// &[Date objects |          -   04:14:48]
+// &[clock program | HTML          -   04:24:08]
+// &[asynchronous |          -   04:28:56]
+// &[console.time() |          -   04:31:17]
+// &[promises |          -   04:33:46]
+// &[async |          -   04:40:23]
+// &[await |          -   04:43:12]
+// &[ES6 Modules |          -   04:46:44]
+// &[DOM intro | HTML          -   04:51:21]
+// &[element selectors | HTML          -   04:54:50]
+// &[DOM traversal | HTML          -   05:03:35]
+// &[add/change HTML elements | HTML          -   05:09:01]
+// &[add/change CSS properties | HTML          -   05:14:01]
+// &[events | HTML          -   05:18:26]
+// &[addEventListener() | HTML          -   05:24:32]
+// &[show/hide HTML elements | HTML          -   05:30:28]
+// &[detect key presses | HTML          -   05:35:28]
+// &[animations | HTML          -   05:40:21]
+// &[canvas API | HTML          -   05:49:40]
+// &[window | HTML          -   06:02:34]
+// &[cookies | HTML          -   06:08:43]
+// &[stopwatch program | HTML          -   06:22:57]
+// &[rock paper scissors game | HTML          -   06:35:11]
+// &[tictactoe game | HTML          -   06:46:46]
+// &[snake game | HTML          -   07:05:43]
+// &[pong game | HTML          -   07:34:32]
 // &[END |          -   ]
