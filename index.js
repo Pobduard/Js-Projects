@@ -1222,9 +1222,150 @@ console.log("Gas", car.gas); //+Retorna es el Getter, da igual si se llama con e
 
 
 // &[objects as arguments |          -   03:51:17]
+/* 
+//+ A la final las var en Js no se sabe que son, por lo que funcina (casi) igual que con varriables
+//+ Primitivas, solo que mas limitado
+class Car{
+    constructor(model, year, color){
+        this._model = model;
+        this._year = year;
+        this._color = color;
+    }
+
+    set model(setter){this._model = setter;}
+    set year(setter){this._year = setter;}
+    set color(setter){this._color = setter;}
+
+    get model(){return this._model;}
+    get year(){return this._year;}
+    get color(){return this._color;}
+}
+
+const car1 = new Car("Mustang", 2023, "red");
+const car2 = new Car("Corvette", 2024, "blue");
+const car3 = new Car("Lambo", 2025, "yellow");
+
+displayInfo(car3);
+changeColor(car3, "gold");
+displayInfo(car3);
+
+function displayInfo(car){
+    console.log(`var: ${car.constructor.name}\n${car.model} | ${car.year} | ${car.color}`);
+}
+
+function changeColor(car, color){
+    car.color = color;
+}
+ */
+
+
 // &[array of objects |          -   03:53:44]
+/* 
+//+ Usp simple de arrays de tipos, en este caso de tipo Objeto/User Defined pues
+class Car{
+    constructor(model, year, color){
+        this._model = model;
+        this._year = year;
+        this._color = color;
+    }
+
+    set model(setter){this._model = setter;}
+    set year(setter){this._year = setter;}
+    set color(setter){this._color = setter;}
+
+    get model(){return this._model;}
+    get year(){return this._year;}
+    get color(){return this._color;}
+
+    drive(){console.log(`You drive ${this._model}`);}
+}
+
+const car1 = new Car("Mustang", 2023, "red");
+const car2 = new Car("Corvette", 2024, "blue");
+const car3 = new Car("Lambo", 2025, "yellow");
+
+const cars = [car1, car2, car3];
+
+console.log(cars[0].model);
+console.log(cars[1].model);
+console.log(cars[2].model);
+
+cars[0].drive();
+cars[1].drive();
+cars[2].drive();
+
+console.log("=======[Ferrari Created & Added]=======");
+const car4 = new Car("Ferrari", 2025, "white");
+cars.push(car4);
+
+startRace(cars);
+
+function startRace (cars) {
+    for (const car of cars) {
+        car.drive();
+    }
+}
+ */
+
+
 // &[anonymous objects |          -   03:56:52]
+/* 
+//+ anonymus object = Objetos que no tienen nombre
+//+                    Osease que no tienen una referencia directa la cual usar para llamarlos
+//+                    Menos syntaxis. Sin necesidad por nombres unicos
+
+class Card{
+    constructor (value, suit) { 
+        this.value = value;
+        this.suit = suit;
+    }
+}
+let cards = [   new Card("A", "Hearts"),
+                new Card("A", "Spades"),
+                new Card("A", "Diamonds"),
+                new Card("A", "Clubs"),
+                new Card("2", "Hearts"),
+                new Card("2", "Spades"),
+                new Card("2", "Diamonds"),
+                new Card("2", "Clubs")];
+
+cards.forEach(card=>console.log(`${card.value} | ${card.suit}`));
+ */
+
+
 // &[error handling |          -   04:02:44]
+/* 
+//+ error = Objetos con una descripción de que algo salio mal
+//+         Estos son usados para capturar y tratar errores.
+//+         Se usan los "Try-Catch-Finally" Ej:
+//+             "Cant Open a File"
+//+             "Lose Connection"
+//+             "User Types incorrect Input"
+//+             "Type Error"
+
+//+ throw = ejecuta un error que es "User Defined"
+
+//+ try: "Intento"/ejecucion de un codigo el cual Creemos que nos podria dar error
+try{
+    let x = window.prompt("Enter a Number");
+    x = Number(x);
+
+    //+ Mirando si no es un Numero, osea lo que se escribio no se pudo transformar a un numero
+    if(isNaN(x)){throw "ERROR: That Wanst a Number, no very Pog :(";}
+    if(x == ""){throw "That was an Empty String";}
+
+    console.log(`${x} is a number`);
+}
+//+ catch: lo que se hace al encontrar un error (Puede o no ser especifico)
+catch(error){console.log(error);}
+//+ finally: Se Ejecuta siempre al final del try-catch-block, independientemente si hubo o no error
+finally{
+    console.log("This Always Executes");
+    //+ Usado por ejemplo cuando se abre un archivo, para siempre cerrarlo
+}
+ */
+
+
 // &[setTimeout() |          -   04:07:27]
 // &[setInterval() |          -   04:12:16]
 // &[Date objects |          -   04:14:48]
