@@ -1366,7 +1366,43 @@ finally{
  */
 
 
-// &[setTimeout() |          -   04:07:27]
+// &[setTimeout() | HTML          -   04:07:27]
+/* 
+//+ setTimeout() = Invoca una funcion luego de un numero de milisegundos
+//+                 Funcion Asyncrona (no para la ejecucion, la hace aparte)
+
+let item = "CryptoCurrency";
+let price = 420.69;
+
+//+ Se le pasa una funcion, un callback, o una arrow function
+//+ Creo que los argumentos luego del tiempo son los de la propia funcion callback
+let timer1 = setTimeout(firstMessage, 1000, item, price);
+let timer2 = setTimeout(secondMessage, 2000);
+let timer3 = setTimeout(thirdMessage, 3000);
+
+//+ (callback que sera llamada, luego de X tiempo)
+
+function firstMessage(item, price){
+    alert(`Buy This ${item} Course For $${price}!`);
+}
+function secondMessage(){
+    alert(`This is not a scam!`);
+}
+function thirdMessage(){
+    alert(`DO ITT!`);
+}
+
+document.getElementById("myButton").onclick = function(){
+//+ con "clearTimeout" se pueden eliminar los setTimeouts, para esto se le pasa una id
+//+ id la cual es donde se guarda el timeout (variable)
+    clearTimeout(timer1);
+    clearTimeout(timer2);
+    clearTimeout(timer3);
+    alert("Thanks for Buying <3");
+}
+ */
+
+
 // &[setInterval() |          -   04:12:16]
 // &[Date objects |          -   04:14:48]
 // &[clock program | HTML          -   04:24:08]
