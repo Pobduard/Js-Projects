@@ -10,18 +10,21 @@ console.log("Enrolled", student); */
 
 
 //& [Show txt html]
-/*document.getElementById("p1").innerHTML = "Hello Bro P1";
+/*
+document.getElementById("p1").innerHTML = "Hello Bro P1";
     document.getElementById("p2").innerHTML = "Hello Bro P2";
-    document.getElementById("p3").innerHTML = "Hello Broo P3"; */
+    document.getElementById("p3").innerHTML = "Hello Broo P3"; 
+*/
 
 
 //& [Simple Prompt - 0:21:14]
-    /*
+/*
     let username = window.prompt("Whats Your Name?: ");
-    console.log(username);*/
+    console.log(username);
+*/
 
 
-    //& [User Input - 0:24:14]
+//& [User Input - 0:24:14]
 /*
     let unsername;
     document.getElementById("MyButton").onclick = function() {
@@ -101,8 +104,8 @@ console.log("Enrolled", student); */
 
 
 //& [Practica, Hipotenisa de un traingulo, pero con input del HTML]       // min 36:66
-
-/* let a; 
+/* 
+let a; 
 let b;
 let c;
     document.getElementById("submitButton").onclick = function() {
@@ -125,6 +128,7 @@ let c;
         console.log("After",c);
     }   // Theres a problem but npi */
 
+
 //& [Simple Counter | HTML&CSS]           //min 43:20
 /* 
 let count = 0;
@@ -144,7 +148,6 @@ document.getElementById("IncreaseButton").onclick = function(){
 
 
 //& [Random Number in Js]       // Min 47:00
-
 /* 
 // El Metodo random de JSON, genera un numero decimal entre 1 y 0, pero podemos "modificarlo" si ese numero lo multiplicamos por el numero que deseamos de posibilidades
 //  luego recordar que el 0 cuenta en la package, entonces su luego le sumamos 1, obtenemos el numero entre 1 y [Numero por el que multiplicamos]
@@ -169,8 +172,8 @@ document.getElementById("RollButton").onclick = ()=> {
 } 
  */
 
-//& [Useful String propeties & Methods | HTML] // Min 52:32
 
+//& [Useful String propeties & Methods | HTML] // Min 52:32
 /*
 let username = "  Bro Code  ";
 let PhoneNumb = "123-456-789";
@@ -191,8 +194,8 @@ PhoneNumb = PhoneNumb.replaceAll("/", ""); // Pa Eliminar seria asi, con vacio
 console.log(PhoneNumb);
 */
 
-//& [Slice Method]   //Min 55:18
 
+//& [Slice Method]   //Min 55:18
 /* 
 // Extrae una seccion de un string dado, la return como un nuevo string, y no modifica el original
 let FullName = "Bro Code";
@@ -226,7 +229,6 @@ console.log(username);
 
 
 //& [If Statement in Js]       // Min 1:01:30
-
 /* 
 let age = window.parseInt(window.prompt("Enter Ypur Age: "));
 if (age >= 18){
@@ -297,31 +299,40 @@ switch (true) {
         break;
 } */
 
+
 // &[AND && OR || operators |          -   01:16:26]
+/*  */
 
 
 // &[NOT ! operator  |          -   01:20:29]
+/*  */
 
 
 // &[While Loop  |          -   01:23:26]
-/*     // Existe el 
-    //      variable = window.promot("Enter Your Name");
-    // para obtener input */
+/*     
+    // Existe el variable = 
+    // window.promot("Enter Your Name");
+    // para obtener input 
+*/
 
 
     // &[Do While Loop  |          -   01:26:14]
-/*     //Basicamente para cuando algo puede estar falso de antemano
-    //osea que la condicion del while normal ya este como falsa */
+/*  
+//Basicamente para cuando algo puede estar falso de antemano
+//osea que la condicion del while normal ya este como falsa 
+*/
 
 
     // &[For Loop  |          -   01:28:36]
-/*     for(let counter = 10; counter > 0; counter-=3){
+/*
+for(let counter = 10; counter > 0; counter-=3){
         console.log(counter);
     } console.log("Happy New Year!");*/
 
 
     // &[Break & Continue  |          -   01:32:05]
-/* for (let i = 0; i <= 20; i++) {
+/* 
+for (let i = 0; i <= 20; i++) {
     if(i == 13){continue;}      //+ Se Salta 1 iteracion
     if(i == 19){break;}         //+ Sale por Completo del Loop
     console.log(i);
@@ -329,7 +340,8 @@ switch (true) {
 
 
 // &[Nested Loop  |          -   01:33:34]
-/* let symbol = window.prompt("Enter a Symbol to use");
+/* 
+let symbol = window.prompt("Enter a Symbol to use");
 let rows = window.prompt("Enter a # of rows");
 let columns= window.prompt("Enter a # of Columns");
 for (let i = 0; i < rows; i++) {
@@ -441,7 +453,8 @@ document.getElementById("submitButton").onclick = ()=>{
 
 
 // &[temperature conversion program | HTML         -   02:06:55]
-/* document.getElementById("submitButton").onclick = ()=>{
+/* 
+document.getElementById("submitButton").onclick = ()=>{
     let temp;
     let label = document.getElementById("tempLabel");
     temp = document.getElementById("textBox").value;    //still a String value
@@ -1404,7 +1417,124 @@ document.getElementById("myButton").onclick = function(){
 
 
 // &[setInterval() |          -   04:12:16]
-// &[Date objects |          -   04:14:48]
+/* 
+//+ setInterval() = invoca una funcion repetidamente luego cierta cantidad de milisegundos
+//+                 Funcion Asyncrona
+
+
+let count = 0;
+let max = window.prompt("Count up to What #?");
+
+max = Number(max);
+
+//+ se la pasa una funcion, callback, arraw function, igual que antes
+const myTimer = setInterval(countUp, 500);
+//+ igual que antes, si necesitamos pasar variables a la funcion/callback
+//+ Los pasamos luego del timer igual que antes
+
+function countUp(){
+				count++;
+				console.log(count);
+				if(count >= max){
+								//+ Para eliminar el Interval
+								clearInterval(myTimer);
+				}
+}
+ */
+
+
+// &[Date objects | HTML          -   04:14:48]
+/* 
+//+ El objeto "Date" es usado para trabajar con fechas y tiempos
+let date = new Date(); //+ Si no se le pasa nada, agarra el tiempo actual
+date = date.toLocaleString(); //+ Mas leible
+console.log(date);
+document.getElementById("myLabel").innerHTML = date;
+console.log("===[]===");
+
+let epic1 = new Date(0); //+ el "Epic" es el tiempo inicial del tiempo en progra, el de hace mucho
+//+ Si pasamos cualquier numero al crear un "Date", sera los milosegundos
+//+ luego de la fecha del "Epic"
+console.log("Origin", epic1.toLocaleString());
+let epic2 = new Date(10_000_000_000);
+console.log("After", epic2.toLocaleString());
+
+console.log("===[]===");
+//+ Pasa la fecha actual con lugar y todo, asumo de cuando se creo el Objeto
+console.log(date);
+
+//+ Podemos pasarle una hora y dia especifico si usamos el constructor
+//+ Año, Mes (empezando en 0), dia, hora, minuto, segundo, miliseg
+let date2 = new Date(2023, 0, 1, 12, 40, 5, 0);
+console.log(date2.toLocaleString());
+console.log("===[]===");
+//+ Tambien se puede pasar la presentacion en string de ese tiempo
+console.log(new Date("January 1, 2023 00:00:00").toLocaleString());
+
+console.log("===[]===");
+//+ Tambien podemos obtener cosas especificas, de una var especifica
+date = new Date();
+let year = date.getFullYear();
+let dayOfMonth = date.getDate();
+let dayOfWeek = date.getDay();
+let month = date.getMonth();
+let hour = date.getHours();
+let minutes = date.getMinutes();
+let seconds = date.getSeconds();
+let milis = date.getMilliseconds();
+console.log("Year:", year);
+console.log("dayOfMonth:", dayOfMonth, "\ndayOfWeek:", dayOfWeek, "\nmonth:", month,
+"\nhour:", hour, "\nminutes:", minutes, "\nseconds", seconds, "\nmilis", milis);
+
+
+console.log("===_[]_===");
+//+tambien podemos asignar el tiempo
+date.setFullYear(2024);
+date.setDate(31);
+//!date.setDay(5); //!no Existe
+date.setMonth(11); //+Diciembre, mes 12, porque empieza en 0
+date.setHours(23); //+Formato de 12H
+date.setMinutes(1);
+date.setSeconds(30);
+date.setMilliseconds(69);
+
+year = date.getFullYear();
+dayOfMonth = date.getDate();
+dayOfWeek = date.getDay();
+month = date.getMonth();
+hour = date.getHours();
+minutes = date.getMinutes();
+seconds = date.getSeconds();
+milis = date.getMilliseconds();
+
+console.log("year", year, "\ndayOfMonth:", dayOfMonth, "\nmonth:", month,
+"\nhour:", hour, "\nminutes:", minutes, "\nseconds", seconds, "\nmilis", milis);
+
+
+//+ Tambien podemos crear nuestras propias funciones para "formatear" el tiempo
+
+function formatDate(date){
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1; //+ +1 para que sea ya mea de 1 a 12
+				let day = date.getDate();
+				
+				return `${day}/${month}/${year}`;
+}
+function formatTime(date){
+				let hours = date.getHours();
+				let minutes = date.getMinutes();
+				let seconds = date.getSeconds();
+				let amOrPm = hours >= 12 ? "pm" : "am" ; //+ Esta en tiempo militar, osea 24H
+				
+				hours = (hours % 12) || 12; //+ de Militar a Estandar
+				
+				return `${hours}H:${minutes}mins:${seconds}sec ${amOrPm}`;
+}
+
+document.getElementById("myLabel2").innerHTML = `${formatDate(date)} | ${formatTime(date)}`;
+ */
+
+
 // &[clock program | HTML          -   04:24:08]
 // &[asynchronous |          -   04:28:56]
 // &[console.time() |          -   04:31:17]
