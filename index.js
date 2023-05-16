@@ -1536,12 +1536,187 @@ document.getElementById("myLabel2").innerHTML = `${formatDate(date)} | ${formatT
 
 
 // &[clock program | HTML          -   04:24:08]
+/* 
+const myLabel = document.getElementById("myLabel");
+
+update();
+setInterval(update, 1000);
+
+function update(){
+    let date = new Date();
+    myLabel.innerHTML = formatTime(date);
+
+    //& Para darle Formato a lo obtenido
+    function formatTime(){
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let amOrPm = (hours >= 12) ? "am" : "pm";
+
+        //+ Quitarlo de tiempo Militar
+        //*console.log(hours, (hours % 12), ((hours % 12) || 12), (12%12), ((12%12)||12));
+        hours = (hours % 12) || 12;     //+ Si es igual a 12, el % retorna 0 y se activa el ||
+
+        hours = formatZeros(hours);
+        minutes = formatZeros(minutes);
+        seconds = formatZeros(seconds);
+        return `${hours}H:${minutes}min:${seconds}sec ${amOrPm}`;
+    }
+
+    //& Para dale 0 antes de
+    function formatZeros(time){
+        time = time.toString();
+
+        //+ Si es mas corto a 2 digitos, le vamos a poner un 0 antes a ese "time", si no, lo dejamos igual
+        return time.length < 2 ? ("0"+time) : time; 
+    }
+}
+ */
+
+
 // &[asynchronous |          -   04:28:56]
+/* 
+//+ syncronous code = Codigo en Secuencia Ordenada.
+//+                     Paso a paso, Instrucciones "Lineales"
+//+                     (Empiza ahora, Termina ahora)
+
+console.log("Start"); console.log("This is syncronous"); console.log("Finished");
+//+ asyncronous code = Codigo "Fuera de Secuencia"
+//+                     Ej: Acceder a la Base de datos
+//+                     Agarrar un Archivo, tareas que toman tiempo
+//+                     (Empiza ahora, finaliza en algun punto despues)
+
+console.log("===[]===\nStart");
+setTimeout(() => {
+        console.log("This is asyncronous");
+    }, 1000);
+console.log("Finished");
+ */
+
+
 // &[console.time() |          -   04:31:17]
+/* 
+//+console.time() = Inicia un Cronometro que podemos usar para medir
+//+                     cuanto tarda una operacion en realizarse
+//+                     Podemos darle a cada Cronometro un nombre diferente
+
+console.time("ResponseTime");   //+ Inica el Cronometro, lo de dentro de los () es el nombre
+
+alert("Click Me");
+setTimeout(() => {console.log("Hello")}, 50000);  //+ Ignora las Operaciones Asyncronas
+
+console.timeEnd("ResponseTime");    //+ Detener el Cronometro, hay que pasarle el mismo nombre con el que se inicio
+ */
+
+
 // &[promises |          -   04:33:46]
+/* 
+//+ promise = Objeto que encapsula los resultados de operaciones Asyncronas
+//+             Permite a Metodos Asyncronos retornar un valor (como lo hacen las funciones syncronas)
+//+             "Prometo retornar algo en un futuro" (no da error pues)
+
+//+             El "STATE" (Estado) de la promesa es "pending" (pendiente)
+//+             Luego es: "fulfilled" (cumplida) o "rejected" (rechazada)
+//+             el RESULT es lo que se puede retornar
+//+             Tienen 2 Partes: Codigo de Produccion, Codigo de Consumo (Lo que se hace si es cumplida la promesa)
+
+//+ se Crean Asi:
+const promise = new Promise((resolve, reject)=>{
+
+    let fileLoaded = false;  //+ Proceso que seria Asyncrono por el tiempo que tarda el archivo en cargar
+//+ Cuando el proceso termina, la promesa puede retornar algo O agarra algun error si lo hay
+
+    if(fileLoaded){resolve("File Loaded");}
+    else{reject("File Rejected");}
+
+    });//+ le podemos pasar un callback, funcion, o =>
+//+ si la Promesa no tiene errores, invoca "Resolve", si no "Reject" (funciones que se le pasan)
+
+
+//+ then : Se invoca SI la promesa ah sido cumplida, igual, callback, function, =>
+//+ catch : Se invoca Si la promesa Falla, igual, callback, function, =>
+promise.then(value => console.log(value))
+        .catch(error => console.log(error));    //+ El then() y el catch() van seguidos, tipo ".then().catch()" 
+
+//+ No es necesario Rechazar una promesa, pero entonces si hay un error no se hara nada al respecto (Si eliminamos el Else y el "rejected")
+
+//+Para pasar argumentos de a la funcion, los pasamos antes de crear la promesa, y que la propia promsesa sea una =>
+const wait = time => new Promise(resolve => {
+    setTimeout(resolve, time);
+});
+time = Number(window.prompt("Give Time in MiliSeconds"));
+wait(time).then(() => {console.log("Thx for Waiting", time, "secs")});
+ */
+
+
 // &[async |          -   04:40:23]
+/* 
+//+ async = Hace que una funcion retorne una promesa
+//+ va muy bien con el await
+async function loadFile(){
+    let fileLoaded = true;
+    //+ Es una funcion, no tenemos que pasarle otras NECESARIAMENTE, podemos solo usar
+    //+ "return" si es "cumplida", o si no el "throw" pa dar un error que poder capturar y listo
+    if(fileLoaded){return "File Loaded";}
+    else{throw "File Rejected";}
+}
+
+//+ Llamamos a la propia funcion ahora, que realmente es una promesa en si 
+//+ (como si le pusieramos una promesa, igual que arribam es vez de invocar la funcion)
+loadFile().then((value) => {console.log(value)})
+    .catch((error)=>{console.log(error)});
+
+//! Ejemplo mas Claro:
+function loadFile2(){
+    let fileLoaded = false;
+    if(fileLoaded){return Promise.resolve("FileLoaded");}
+    else{return Promise.reject("File NOT Loaded");}
+}
+
+loadFile2().then((value) => {console.log(value)})
+    .catch((error)=>{console.log(error)});
+ */
+
+
 // &[await |          -   04:43:12]
+/* 
+//+ await = Hace a una funcion Asyncrina (async) esperar por una promesa
+async function loadFile(){
+    let fileLoaded = false;
+
+    if(fileLoaded){return "File Loaded";}
+    else{throw "File Rejected";}
+}
+
+//+ de esta forma se usa, en vez del ".then().catch()", ponemos await antes de llamar la funcion
+//+ PERO el await en si solo se puede llamar dentro de otra funcion asyncrona en 1er lugar
+async function startProcess(){
+    //+ Toca usar el try para agarrar el error
+    //+ Util si tenemos que trabjar con mas de 1 funcion Asyncrona
+
+    try {
+        let message = await loadFile();
+        console.log(message);
+        message = await loadFile();
+        console.log(message);
+        message = await loadFile();
+        console.log(message);
+    } catch (error) {
+        console.log(error);}
+    ;}
+
+startProcess();
+ */
+
+
 // &[ES6 Modules |          -   04:46:44]
+
+//+ La idea detras de un Modulo es que: es un archivo de codigo rehusable
+//+ Podemos importar secciones de codigo pre-escrito para usar donde y cuando sea
+//+ Genial para cualquier cualquier valor de utilidad y funciones de utilidad
+//+ Ayuda a hacer nuestro codigo mas rehusable y mantenible
+//+ Se puede pensar de mos modulos, como capitulos de un libro
+
 // &[DOM intro | HTML          -   04:51:21]
 // &[element selectors | HTML          -   04:54:50]
 // &[DOM traversal | HTML          -   05:03:35]
