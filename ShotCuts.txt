@@ -1,0 +1,17 @@
+[Windows Key] + Space 		Change Keyboard Language	
+F5				Run Debug
+Alt + Arrow (Up/Down)		Move Code Line
+Alt + D				Documentation		[Extension]
+Shift + Alt + Arrow (Up/Down)	Copy Code Line
+Control + Alt + Arrow (Up/Down)	Extra Cursor on Next Line
+Control + D			Select Word / Select Next Instance of Said Word
+Control + Alt + 6		Toggle Block Comment
+Control + Alt + 7		Add Line Comment
+Control + Alt + 8		Remove Line Comment
+Control + K, Control + L 	Toggle Fold
+Control + K, Control + 0 	Fold ALL
+Control + Z			Undo
+Control + Y			Restore the Undo
+Control + P			Files on Proyect
+Control + Shift + P		Command Palete
+Control + .			Quick Fix

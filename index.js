@@ -1709,16 +1709,104 @@ startProcess();
  */
 
 
-// &[ES6 Modules |          -   04:46:44]
-
+// &[ES6 Modules | HTML          -   04:46:44]
+/* 
 //+ La idea detras de un Modulo es que: es un archivo de codigo rehusable
 //+ Podemos importar secciones de codigo pre-escrito para usar donde y cuando sea
 //+ Genial para cualquier cualquier valor de utilidad y funciones de utilidad
 //+ Ayuda a hacer nuestro codigo mas rehusable y mantenible
 //+ Se puede pensar de mos modulos, como capitulos de un libro
 
+//+ podemos exportar e importar cosas
+//+ para exportar ponemos "export" antes de la declaracion de la var (antes de const, let, function, ect...)
+//+ para importar (solo lo que posea export en otro archivo) podemos "import {} from '' " y los nombres de las var y funct que deseamos
+//+ el " ./ " indica que es una direccion relativa al archivo
+
+import {PI, getCircumference, getArea} from "./math_util.js";
+console.log(PI);
+console.log(getCircumference(10));
+console.log(getArea(10));
+//+ podemos importar especificando las cosas que deseamos, o en general todo con " * "
+//+ si lo hacemos con todo, tenemos que ponerle un "alias", del tipo "import * as [alias]"
+console.log("===[]===");
+import * as MathUtil from "./math_util.js"; //+ Si lo hacemos asi es tipo una clase, tenemos que hacerlo con el [alias].[var/func], igual que Python Modules, o que usar el modulo "Math"
+console.log(MathUtil.PI);
+console.log(MathUtil.getCircumference(10));
+console.log(MathUtil.getArea(10));
+ */
+
+
 // &[DOM intro | HTML          -   04:51:21]
+/* 
+//+ DOM = Document Object Model (API = Aplication Programing Interface) / "Modelo Objeto del Documento" (Tecnicamente una API, que es una Interfaz de programación de aplicaciones)
+//+         Una interfaz para encadenar contenido de una pagina
+//+         Esta ordenada como un arbol de alta jerarquia
+
+console.log(document); //+ el DOM en si y todo lo que contiene
+console.dir(document); //+ Todas las propiedades del DOM
+console.log(document.title, document.URL);  //+ Acceder a algunas de sus propiedades
+
+document.title = "Never Gonna Give You Up BRO!";
+// document.location = "http://www.google.com";    //+ Nos lleva a google, como encadenacion de paginas
+document.body.style.backgroundColor = "skyblue";    //+ Accedemos al nodo "Body" (Nodo son las tag principales) y luego a un atributo de este
+document.getElementById("myDiv").innerHTML = "Hello";
+ */
+
+
 // &[element selectors | HTML          -   04:54:50]
+/* 
+//+ Obtener por ID
+let header = document.getElementById("myTitle");
+header.style.backgroundColor = "lightgreen";
+
+
+//+Obtener por "name"
+let fruits = document.getElementsByName("fruits");  //+ Retorna una "NodeList", similar pero no igual a un array
+console.log(fruits);    //+ la NodeList, se aprecia porque es difernete a un array (Todos los Atributos que posee)
+console.log(fruits[0]);    //+ 1 de esos Nodos en especifico
+fruits.forEach(fruit => {
+    if(fruit.checked){console.log(fruit.value)}     //+ Se muestran las seleccionadas
+})
+
+
+//+ Obtener por tipo de Tag
+let vegetables = document.getElementsByTagName("li");   //+ Retorna una "HTMLCOllection"
+console.log(vegetables);
+vegetables[1].style.backgroundColor = "brown";
+console.log(vegetables[1]);
+
+
+//+ Obtener por nombre de clase
+let desserts = document.getElementsByClassName("desserts"); //+ Retorna "Array-Like-Object"
+console.log(desserts);
+console.log(desserts[1]);
+desserts[1].style.backgroundColor = "lightpink";
+
+
+//+ Obtener por "querySelector" (por todo lo de atras pues) // Le podemos pasar Id, Classname, Tagname, Atributo
+let element = document.querySelector("#myTitle");  //+ Si es por Id, se le tiene que poner un " # " antes de la ID
+element.style.backgroundColor = "teal"; 
+
+let className = document.querySelector(".desserts"); //+ si es una CLasname, tiene que tener un " . " antes del ClassName
+className.style.backgroundColor = "lightblue";  //+Query Selector selecciona SOLO el 1er elemento, si queremos todos, es con otra funcion "querySelectorAll"
+
+let tagName = document.querySelector("li"); //+ TagName, no lleva nada especial
+tagName.style.backgroundColor = "orange";    //+ Nuevamente, solo el 1er Elemento
+
+let atribute = document.querySelector("[for]"); //+ Atributo, atributo HTML que contenga un componente
+atribute.style.backgroundColor = "red";    //+ Nuevamente, solo el 1er Elemento
+
+
+//+ Obtener por "querySelectorAll" Osea todos los elementos que lo posean a la vez
+let elements = document.querySelectorAll("[for]");
+elements.forEach(elem=>{
+    elem.style.fontStyle = "italic";
+    elem.style.fontFamily = "Fantasy Gothic";
+    elem.style.fontSize = "2rem";
+})
+ */
+
+
 // &[DOM traversal | HTML          -   05:03:35]
 // &[add/change HTML elements | HTML          -   05:09:01]
 // &[add/change CSS properties | HTML          -   05:14:01]
