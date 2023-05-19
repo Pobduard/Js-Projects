@@ -10,6 +10,10 @@
 </head>
 
 <body>
+<!--+ Para hacer Comentarios Anidados en HTML, ponemos el anidado entre "- -" en vez de entre "--" 
+    <!- - Tipo asi, para que funcione y se pueda sin errores  - ->
+-->
+
 <!-- &[Original] -->
 <!-- 
         <script src="index.js"></script> -->
@@ -39,7 +43,7 @@
  -->
 
 
-<!--&[Simple Counter - 0:43:20] -->
+<!--&[Simple Counter | HTML&CSS - 0:43:20] -->
 <!--
     <label id="CountLabel">0</label><br>
     <button id="DecreaseButton">Decrease</button>
@@ -160,10 +164,10 @@
  -->
 
 <!-- &[element selectors | HTML          -   04:54:50]-->
-
+<!-- 
     <h1 id="myTitle">This is the Menu</h1>
 
-    <input type="radio" name="fruits" value="apple" > <!--+EL Checked sirve pa que este seleccionado por default -->
+    <input type="radio" name="fruits" value="apple" > <!- -+EL Checked sirve pa que este seleccionado por default - ->
     <label for="apple">apple</label><br>
     <input type="radio" name="fruits" value="orange" >
     <label for="orange">orange</label><br>
@@ -179,25 +183,86 @@
     <div class="desserts">Ice Cream</div>
     <div class="desserts">Cake</div>
     <div class="desserts">Pie</div>
+ -->
 
+
+<!-- &[DOM traversal | HTML          -   05:03:35]-->
+<!-- 
+ <ul id="fruits">       <!- - Clase Padrede las de abajo- ->
+    <li>apple</li>      <!- - 1ra Clase Hija de "fruits" - ->   <!- - Hermana anterior de orange - ->
+    <li>orange</li>     <!- - 2da Clase Hija de "fruits" - ->   <!- - Hermana de ambas - ->
+    <li>banana</li>     <!- - ultima Clase Hija de "fruits" - -><!- - Hermana posterior de orange - ->
+ </ul>
+ <ul id="vegetables">
+    <li>carrots</li>
+    <li>potatoes</li>
+    <li>onions</li>
+ </ul>
+ <ul id="desserts">
+    <li>ice cream</li>
+    <li>cake</li>
+    <li>pie</li>
+ </ul>
+ -->
+
+
+<!-- &[add/change HTML elements | HTML          -   05:09:01]-->
+<!-- 
+    <ul id="fruits">
+        <!- - Tag Para Añadir elementos - ->
+        <li>apple</li>
+        <li>orange</li>
+        <li>banana</li>
+    </ul>
+ -->
+
+
+<!-- &[add/change CSS properties | HTML          -   05:14:01]-->
+<!-- 
+    <h1 id="myTitle">This is my title</h1>
+ -->
+
+
+<!-- &[events | HTML | CSS          -   05:18:26]-->
+<!-- 
+ <!- - El "onload" tambien se puede poner en el body, osea " onload="doSomethingLoad()" "- ->
+    <!- - Al Evento de "onclick" le pusimos que lleve a cabo la funcion "doSomething()" - ->
+    <button id="myButton1" onclick="doSomethingClick()">Button1</button>
+    <!- - Podemos Añadir el Evento desde el Js - ->
+    <button id="myButton2">Button2</button>
+    <input id="myText">
+    <div id="myDiv"></div>
+ -->
+
+
+<!-- &[addEventListener() | HTML          -   05:24:32]-->
+<!--
+
+-->
+<!-- &[show/hide HTML elements | HTML          -   05:30:28]-->
+<!--
+
+-->
+<!-- &[detect key presses | HTML          -   05:35:28]-->
+<!--
+
+-->
+<!-- &[animations | HTML          -   05:40:21]-->
+<!--
+
+-->
+<!-- &[canvas API | HTML          -   05:49:40]-->
+<!--
+
+-->
+<!-- &[window | HTML          -   06:02:34]-->
+<!--
+
+-->
 <!-- &[END      -   ]-->
 <!--
 
 -->
-
-
-<!-- &[END      -   ]-->
-<!--
-
--->
-
-
-<!-- &[END      -   ]-->
-<!--
-
--->
-
-
 <!-- &[END      -   ]-->
 <!--
 

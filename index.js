@@ -1808,9 +1808,132 @@ elements.forEach(elem=>{
 
 
 // &[DOM traversal | HTML          -   05:03:35]
+/* 
+//+ Los componentes en el HTML son Hijos Padres y Hermanos y unos de otros dependiendo de su Jerarquia (X Esta contenido en Y, igual que Z que esta antes/despues de X)
+//+ .firstElementChild
+//+ .lastElementChild
+//+ .parentElement
+//+ .nextElementSibling
+//+ .previousElementSibling
+//+ .children[]
+//+ .Array.from(.children)
+
+
+let body = document.body;
+let child = body.firstElementChild;  //+1er Elemento que es un hijo, en este caso toda la 1ra lista <ul>
+console.log(body.lastElementChild);   //+ultimo Elemento que resulta ser la ScripTag
+child.style.backgroundColor = "lightgreen";
+
+let element1 = document.querySelector("#vegetables");   //+1er Elemento de id "vegetables"
+let parent = element1.parentElement;                    //+ Padre de dicho elemento (<body>)
+parent.style.backgroundColor = "lightblue";
+
+let sibling1 = element1.nextElementSibling;              //+ Siguiente Tag Hermana (siguiente en el mismo nivel de jerarquia del <ul> en este caso)
+sibling1.style.backgroundColor = "orange";               //+ Resulta en la Siguiente lista (la de #desserts)
+let sibling2 = element1.previousElementSibling;              //+ Anterior Tag Hermana (siguiente en el mismo nivel de jerarquia del <ul> en este caso)
+sibling2.style.fontFamily = "Fantasy";               //+ Resulta en la Anterior lista (la de #fruits)
+
+let child1 = element1.firstElementChild;
+child1.style.fontSize = "1.5rem";                   //+ carrots
+let child2 = element1.lastElementChild;
+child2.style.fontSize = "1.2rem";                   //+ Banana
+let child3 = element1.children[1];
+child3.style.fontFamily = "Times New Roman";        //+ potatoes
+
+let element2 = document.querySelector("#desserts");
+console.log(element2.children);                 //+ Como tal el ".children" retorna es una colleccion de elementos, tenemos que convertirlo a Array Aun
+let children = Array.from(element2.children);   //+ "Array.from" convierte la colleccion a un array, mientras que los elementos de la colleccion sean "Iterables"
+console.log(children);                          //+ lo Pasamos a array para poder usar el forEach()
+children.forEach(child => {
+    child.style.fontFamily = "MV Boli"
+});
+ */
+
+
 // &[add/change HTML elements | HTML          -   05:09:01]
+/* 
+const nameTag = document.createElement("h1");   //+ Creamos un Elemento con la tag que le pasemos en el medio
+//+ Esta vacia, le podemos añadir texto o con:
+//+ ".innerHTML"    (Vulnerable a ataques XSS)(Cross Site Scripting attacks)
+//+ ".textContent" (que es mas seguro)
+
+nameTag.textContent = window.prompt("Enter Your Name"); //+ Si esto fuera con .innerHTML, aqui le podriamos meter un script y modificamos todo el codigo
+//+ Le Añadimos la propiedad, pero la tag no esta añadida al HTML en si aun
+document.body.append(nameTag);  //+ Asi la añadimos al <Body>
+
+const myList = document.querySelector("#fruits");   //+ Tag a Añadir
+//+ Añadir al Inicio de la Lista
+const listItemMango = document.createElement("li");      //+ Tag Creada
+listItemMango.textContent = "mango";
+myList.prepend(listItemMango);                            //+ Añadir al Inicio de la Lista
+//+ Añadir al Final de la Lista
+const listItemAvocado = document.createElement("li");
+listItemAvocado.textContent = "avocado";
+myList.append(listItemAvocado);                            //+ Añadir al Final de la Lista
+//+ Añadir en algun Punto del Medio de la Lista
+const listItemPear = document.createElement("li");
+listItemPear.textContent = "pear";
+myList.insertBefore(listItemPear, myList.getElementsByTagName("li")[2]);    //+Elemento a Añadir, Donde (en este caso, agarramos todos los li del "myList", y decidimos una index donde añadirlo)
+ */
+
+
 // &[add/change CSS properties | HTML          -   05:14:01]
-// &[events | HTML          -   05:18:26]
+/* 
+const title = document.getElementById("myTitle");
+
+title.style.backgroundColor = "#222222"; //+ Tambien se puede Hexadecimal dentro del "" tipo "#222222"
+title.style.color = "rgba(50, 200, 250)";
+title.style.fontFamily = "consolas";
+title.style.textAlign = "center";
+title.style.border = "2px solid";
+title.style.display = "none";   //+ Oculta el Elemento
+title.style.display = "block";   //+ Muestra el Elemento
+ */
+
+
+// &[events | HTML | CSS          -   05:18:26]
+/* 
+//+ event = Algun cambio que hace el Usuario o el Navegador
+//+ .onclick
+//+ .onload
+//+ .onchange
+//+ .onmouseover
+//+ .onmouseout
+//+ .onmousedown
+//+ .onmouseup
+
+function doSomethingClick(){alert("Do SomethingClick");}
+function doSomethingLoad(){alert("Do SomethingLoad");}
+function doSomethingChange(){alert("Do SomethingChange");
+        console.log("Before", this.value);
+        this.value = this.value.toString().toUpperCase();
+        console.log("After", this.value);}
+function doSomethingMouseOver(){this.style.backgroundColor = "red";}
+function doSomethingMouseOut(){this.style.backgroundColor = "lightgreen";}
+function doSomethingMouseDown(){this.style.backgroundColor = "lightgreen";}
+function doSomethingMouseUp(){this.style.backgroundColor = "lightblue";}
+
+//+Al Clikear
+const button2 = document.getElementById("myButton2");
+button2.onclick = doSomethingClick;  //+Callback, no invocar
+
+//+ Al cargar el componente, ejemplo el Body pa que sea al inicio
+const body = document.body;
+body.onload = doSomethingLoad;
+
+//+ Al cambiar el componente, ej el estado de un input/textBox, ejemplo para formatearlo luego de dejar de escribit/salir del la textBox
+const text = document.getElementById("myText");
+text.onchange = doSomethingChange; //+Callback, no invocar
+
+//+ Al hacer acciones de Mouse (Hay Mas)
+const div = document.getElementById("myDiv");
+div.onmouseover = doSomethingMouseOver;
+div.onmouseout = doSomethingMouseOut;
+div.onmousedown = doSomethingMouseDown;
+div.onmouseup = doSomethingMouseUp;
+ */
+
+
 // &[addEventListener() | HTML          -   05:24:32]
 // &[show/hide HTML elements | HTML          -   05:30:28]
 // &[detect key presses | HTML          -   05:35:28]
