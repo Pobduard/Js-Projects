@@ -1934,16 +1934,238 @@ div.onmouseup = doSomethingMouseUp;
  */
 
 
-// &[addEventListener() | HTML          -   05:24:32]
-// &[show/hide HTML elements | HTML          -   05:30:28]
-// &[detect key presses | HTML          -   05:35:28]
-// &[animations | HTML          -   05:40:21]
-// &[canvas API | HTML          -   05:49:40]
-// &[window | HTML          -   06:02:34]
-// &[cookies | HTML          -   06:08:43]
-// &[stopwatch program | HTML          -   06:22:57]
-// &[rock paper scissors game | HTML          -   06:35:11]
-// &[tictactoe game | HTML          -   06:46:46]
-// &[snake game | HTML          -   07:05:43]
-// &[pong game | HTML          -   07:34:32]
+// &[addEventListener() | HTML | CSS          -   05:24:32]
+/* 
+//+ .addEventListener(event, function, useCapture) = Linkear un evento a un componente HTML, que realice una funcion/evento
+//+ Se puede añadir muchos "event handlers" (manejadores de evento) a 1 solo elemento.
+//+ El mismo evento puede invocar diferenres funciones
+
+const innerDiv = document.getElementById("innerDiv");
+const outerDiv = document.getElementById("outerDiv");
+
+//+ Se añade el event listener de tipo comp.addEventListener("event", function)
+innerDiv.addEventListener("mouseover", changeRed);
+innerDiv.addEventListener("mouseout", changeGreen);
+
+//+ Tiene otro parametro, el "useCapture", si un elemento esta dentro de otro, y ambos esperan el mismo evento? cual se lleva a cabo 1ro?
+innerDiv.addEventListener("mousedown", changeBlue);
+outerDiv.addEventListener("mousedown", changeBlue, true);   //+ El true ahi es el "useCapture", pa que se llame 1ro en el cual se puso true
+innerDiv.addEventListener("mouseup", changeGreen);
+outerDiv.addEventListener("mouseup", changeGreen);
+
+
+function changeRed(){
+    innerDiv.style.backgroundColor = "red";
+}
+function changeGreen(){
+    this.style.backgroundColor = "lightgreen";
+}
+function changeBlue(){
+    alert("You Selected " + this.id);   //+ Podemos ver que se hace el pequeño de 1ro de normal, o si el "useCapture" es true, el que lo posea
+    this.style.backgroundColor = "rgb(50,200,250)"; //+ "this", lo que llamo el evento
+}
+ */
+
+
+// &[show/hide HTML elements | HTML | CSS          -   05:30:28]
+/* 
+const myButton = document.querySelector("#myButton");
+const myImg = document.querySelector("#myImg");
+
+myButton.addEventListener("click", () => {
+
+    // console.log(myImg.style.display);   //+ Si la queremos Oculta, el Css no se carga antes que el HTML, por eso a menos que po ngamos el Style ahi, esto aparece vacio de 1ro
+    // if(myImg.style.display == "none"){
+    //     myImg.style.display = "block";  //+ Muestra la Imagen
+    // }
+    // else{
+    //     myImg.style.display = "none";   //+ Oculta la Imagen
+    // }
+
+
+//+ con el uso de "visibility" en vez de "Display" el espacio que tomaria la imagen se respeta
+    console.log(myImg.style.visibility);
+    if(myImg.style.visibility == "hidden"){
+        myImg.style.visibility = "visible";  //+ Muestra la Imagen
+    }
+    else{
+        myImg.style.visibility = "hidden";   //+ Oculta la Imagen
+    }
+        }
+    );
+ */
+
+
+// &[detect key presses | HTML | CSS          -   05:35:28]
+/* 
+//+ Añadir el listener a la propia window
+const myDiv = document.getElementById("myDiv");
+window.addEventListener("keydown", move);
+let x = 0; 
+let y = 0;
+
+function move(event){
+    switch (event.key) {
+        case "ArrowDown":
+            y += 5;
+            myDiv.style.top = y + "px";
+            break;
+        case "ArrowUp":
+            y -= 5;
+            myDiv.style.top = y + "px";
+            break;
+        case "ArrowRight":
+            x += 5;
+            myDiv.style.left = x + "px";
+            break;
+        case "ArrowLeft":
+            x -= 5;
+            myDiv.style.left = x + "px";
+            break;
+        default:
+            break;
+    }
+}
+ */
+
+
+// &[animations | HTML | CSS          -   05:40:21]
+/* 
+const myButton = document.getElementById("myButton");
+const myAnimation = document.getElementById("myDiv");
+
+myButton.addEventListener("click", begin);
+
+function begin() {
+    let timerId = null; //Para poder manjear la animacion
+    let x = 0;
+    let y = 0;
+    let degrees = 0;
+    let scaleX = 1; //+ 1 = 100%
+    let scaleY = 1; //+ 1 = 100%
+
+    timerId = setInterval(frame, 5);    //cada cuento se actualiza
+
+
+    function frame(){
+        //+ Que se mueva en diagonal el div
+        
+        // if(x >= 200 || y >= 200){clearInterval(timerId);}
+        // else{
+        //     x++;
+        //     y++;
+        //     myAnimation.style.left = x + "px";
+        //     myAnimation.style.top = y + "px";
+        // } 
+       
+        // //+ Que rote sobre si mismo
+        
+        // if(degrees >= 360){clearInterval(timerId);}
+        // else{
+        //     degrees+=5;
+        //     myAnimation.style.transform = "rotateX("+degrees+"deg)";
+        //     myAnimation.style.transform = "rotateY("+degrees+"deg)";    //+ Solo se lleva a cabo el ultimo, o es el que se ve
+        //     myAnimation.style.transform = "rotateZ("+degrees+"deg)";
+        // }
+
+        if(scaleX <= 0.1 || scaleY <= 0.1){clearInterval(timerId);}
+        else{
+            scaleX -= 0.01;     //+1%
+            scaleY -= 0.01;     //+1%
+            myAnimation.style.transform = "scale("+scaleX+","+scaleY+")";
+        }
+    }
+}
+  */
+
+
+// &[canvas API | HTML | CSS          -   05:49:40]
+/* 
+//+ Canvas API = Una forma de dibujar graficos
+//+                 Usado para Animaciones, juegos, visializacion de data, etc...
+
+let canvas = document.querySelector("#myCanvas");   //+ Como el Frame/Recuadro de una Pintura
+let context = canvas.getContext("2d");              //+ La Pintura en si de dicho cuadro, de Dibuja aqui
+
+//+ Dibujar Lineas
+// context.strokeStyle = "rgba(50,200,250)";   //+ Color del Dibujo
+// context.lineWidth = 5;  //+ Grosor de los Pixeles del Dibujo
+// context.beginPath();    //+ Empiece el Dibujo
+// context.moveTo(0, 0);   //+ Se Mueva a x, y posicion, que empiece de ahi
+// context.lineTo(canvas.width/2, canvas.height/2);   //+ Cordenadas para dibujar una linea
+// context.lineTo(canvas.width/2, canvas.height);   //+ Otra Linea
+// context.moveTo(500, 0);   //+ Empezar a Dibujar en Otro lado
+// context.lineTo(canvas.width/2, canvas.height/2);   //+ Otra Linea
+// context.stroke(); //+ La Dibujada en si
+
+//+ Dibujar un Triangulo a Pata
+// context.strokeStyle = "Orange";
+// context.fillStyle = "yellow";   //+ Color de Rellenado
+// context.lineWidth = 10;         //+ Del Stroke/Borde
+// context.beginPath();
+// context.moveTo(canvas.width/2, 0);
+// context.lineTo(0, canvas.height/2);
+// context.lineTo(canvas.width, canvas.height/2);
+// context.lineTo(canvas.width/2, 0);
+// context.stroke();       //+ "Borde"
+// context.fill();         //+ Rellenado
+
+//+ Dibujar Rectangulos fillRect(x, y, width, height)
+// context.fillStyle = "black";
+// context.lineWidth = 3;
+// context.fillRect(canvas.width/2, canvas.height/2, canvas.width, canvas.height);//+ x, y, width, height
+// context.strokeStyle = "black";
+// context.strokeRect(canvas.width/2, canvas.height/2, canvas.width, canvas.height);//+ x, y, width, height
+
+// context.fillStyle = "red";
+// context.lineWidth = 3;
+// context.fillRect(0, 0, canvas.width/2, canvas.height/2);//+ x, y, width, height
+// context.strokeStyle = "black";
+// context.strokeRect(0,0,canvas.width/2, canvas.height/2);//+ x, y, width, height
+
+// context.fillStyle = "green";
+// context.lineWidth = 3;
+// context.fillRect(0, canvas.height/2, canvas.width/2, canvas.height);//+ x, y, width, height
+// context.strokeStyle = "black";
+// context.strokeRect(0, canvas.height/2, canvas.width/2, canvas.height);//+ x, y, width, height
+
+// context.fillStyle = "orange";
+// context.lineWidth = 3;
+// context.fillRect(canvas.width/2, 0, canvas.width, canvas.height/2);//+ x, y, width, height
+// context.strokeStyle = "black";
+// context.strokeRect(canvas.width/2, 0, canvas.width, canvas.height/2);//+ x, y, width, height
+
+//+ Dibujar Circulo arc(x, y, r, sAngle, eAngle, counterClockWise)
+// context.fillStyle = "lightblue";
+// context.strokeStyle = "darkblue";
+// context.lineWidth = 10;
+// context.beginPath();
+// //+ x, y = Centro del Circulo 
+// //+ r = Radio
+// //+ sAngle eAngle = Starting angle, Ending angle
+// //+ counterClockWise = Siguiendo las Agujas del Reloj
+// context.arc(canvas.width/2, canvas.height/2, 200, 0, 2*Math.PI);   //+ de 0 a 2PI, circulo Entero
+// context.stroke();
+// context.fill();
+
+//+ Dibujar Texto
+context.font = "50px Mv Boli";
+context.fillStyle = "orange";   //+ Color del Texto
+canvas.textAling = "center";
+context.fillText("YOU WIN!", canvas.width/2, canvas.height/2);  //+ Texto, Coordenadas a aparecer (encima)
+ */
+
+
+// &[window | HTML | CSS          -   06:02:34]
+
+//+ window = Un Objeto/Interface usada para hablar con el navegador web
+//+             El DOM es una propiedad de la window 
+
+
+// &[cookies | HTML | CSS          -   06:08:43]
+// &[stopwatch program | HTML | CSS          -   06:22:57]
+// &[rock paper scissors game | HTML | CSS          -   06:35:11]
+// &[tictactoe game | HTML | CSS          -   06:46:46]
+// &[snake game | HTML | CSS          -   07:05:43]
+// &[pong game | HTML | CSS          -   07:34:32]
 // &[END |          -   ]
