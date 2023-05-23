@@ -2157,12 +2157,102 @@ context.fillText("YOU WIN!", canvas.width/2, canvas.height/2);  //+ Texto, Coord
 
 
 // &[window | HTML | CSS          -   06:02:34]
-
+/* 
 //+ window = Un Objeto/Interface usada para hablar con el navegador web
 //+             El DOM es una propiedad de la window 
 
+console.dir(window);
+console.dir(window.document);   //+Este es el DOM
+
+console.log(window.innerHeight);
+console.log(window.innerWidth);
+
+console.log(window.scrollX);    //+ Retorna el valor en donde se encuentra
+console.log(window.scrollY);    //+ Retorna el valor en donde se encuentra
+
+console.log(window.location.href);  //+ URL
+// window.location.href = "https://youtube.com"    //+Redireccion a YT
+
+console.log(window.location.hostname);  //+ la direccion?
+console.log(window.location.pathname);  //+ Donde llega
+
+const myButton = document.querySelector("#myButton");
+// myButton.addEventListener("click", () => {window.open("https://youtube.com");});    //+ Cada vez que le demos, abre un nueva ventana
+// myButton.addEventListener("click", () => {window.close();});    //+ Cada vez que le demos, cierra la ventana actual
+// myButton.addEventListener("click", () => {window.print();});    //+ Cada vez que le demos, vamos a imprimir la ventana
+
+// window.alert("Hello");
+// console.log(window.confirm("Press OK to continue")); //+ Confirmar o negar algo (Retorna true/false)
+
+// let age = window.prompt("Enter Your Age");
+// if(age < 18){
+//     window.alert("You must be 18+ to Enter");
+//     window.close();
+// }
+ */
+
 
 // &[cookies | HTML | CSS          -   06:08:43]
+/* 
+//+ cookie = Un pequeño archivo de texto guardado en el computador
+//+             Usado para recordar informacion sobre el usuario
+//+             Guardado en pares "name-value" 
+
+// console.log(navigator.cookieEnabled);   //+ Activadas o no
+
+//+ nombre=valor; expira= (Fechay Hora); path=
+// document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2030 12:00:00 UTC; path=/";
+// document.cookie = "lastName=SquearePants; expires=Sun, 1 January 2010 12:00:00 UTC; path=/";
+// console.log(document.cookie);   //+ Se Pueden guardar varias, y se pueden sobreescibir, si ya "Expiro", se elimina sola
+
+// setCookie("email", "Sponge@Gmail.com", 365);
+// deleteCookie("email");
+// setCookie("firstName", "SpongeBob", 365);
+// setCookie("lastName", "SquearePants", 365);
+
+// console.log(getCookie("firstName"));
+// console.log(getCookie("lastName"));
+
+const firstText = document.querySelector("#firstText");
+const lastText = document.querySelector("#lastText");
+const submitBtn = document.querySelector("#submitBtn");
+const cookieBtn = document.querySelector("#cookieBtn");
+
+submitBtn.addEventListener("click", () => {
+    setCookie("firstName", firstText.value, 365);
+    setCookie("lastName", lastText.value, 365);
+    });
+cookieBtn.addEventListener("click", () => {
+    firstText.value = getCookie("firstName");
+    lastText.value = getCookie("lastName");
+    });
+
+//+ Al Darle "Cookies" nos pondra automaico lo que habiamos puesto en la cookie y lenara el TextField con eso
+
+
+function setCookie (name, value, daysToLive) {
+    const date = new Date();
+    date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);    //Tiempo actual, + dias, convertido en milis (dias, horas, mins, seg, milis)
+    let expires = "expires=" + date.toUTCString();  //+ Toca ponerlo de esa forma rara
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
+}
+function deleteCookie(name){
+    setCookie(name, null, null);    //+ Accedemos con el nombre, le quitamos el valor, y le quitamos el tiempo
+}
+function getCookie(name) {
+    const cDecoded = decodeURIComponent(document.cookie);   //+cDecoded = cookieDecoded
+    const cArray = cDecoded.split("; ");         //+cArray = cookieArray
+    let result = null;
+    cArray.forEach(element => {
+        if(element.indexOf(name) == 0){ //+ Si el elemento, en la index de "name" coincide
+            result = element.substring(name.length+1);  //+ Retornala lo que este luego del "name=" en el "name=value"
+        }
+    })
+    return result;
+}
+ */
+
+
 // &[stopwatch program | HTML | CSS          -   06:22:57]
 // &[rock paper scissors game | HTML | CSS          -   06:35:11]
 // &[tictactoe game | HTML | CSS          -   06:46:46]
