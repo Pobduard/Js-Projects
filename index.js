@@ -2254,8 +2254,392 @@ function getCookie(name) {
 
 
 // &[stopwatch program | HTML | CSS          -   06:22:57]
+/* 
+const timeDisplay = document.querySelector("#timeDisplay");
+const startBtn = document.querySelector("#startBtn");
+const pauseBtn = document.querySelector("#pauseBtn");
+const resetBtn = document.querySelector("#resetBtn");
+
+let startTime = 0;
+let elapsedTime = 0;
+let currentTime = 0;
+let paused = true;
+let intervalId;
+let hrs = 0;
+let mins = 0;
+let secs = 0;
+
+startBtn.addEventListener("click", () => {
+        if (paused){
+            paused = false; //+ No se ah parado el timer
+            startTime = Date.now() + elapsedTime; //+ Tiempo actual en milisegundos - tiempo pasado
+            intervalId = setInterval(updateTime, 75);   //+ Timer
+            }
+        }
+    );
+//+ Error al Pararlo y Continuarlo, sin Reset
+pauseBtn.addEventListener("click", () => {
+            if(!paused){
+                paused = true;
+                elapsedTime = Date.now() - startTime;   //+ Cuanto tiempo ah pasado
+                clearInterval(intervalId);  //+ Parar el Timer
+            }
+        }
+    );
+resetBtn.addEventListener("click", () => {
+            paused = true;
+            clearInterval(intervalId);
+            startTime = 0;
+            elapsedTime = 0;
+            currentTime = 0;
+            secs = 0;
+            mins = 0;
+            hrs = 0;
+            timeDisplay.textContent = "00:00:00";
+        }
+    );
+
+
+function updateTime () {
+    elapsedTime = Date.now() - startTime;   //+ Tiempo en milis
+
+    secs = Math.floor((elapsedTime / 1000) % 60) //+ Sacar los milis del "elapsed" a Segs, y hacer "%60" para que el resultado no salga de eso
+    mins = Math.floor((elapsedTime / (1000 * 60)) % 60)     //+ 60.000 milis en cada seg
+    hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);    //+
+
+    secs = pad(secs);
+    mins = pad(mins);
+    hrs = pad(hrs);
+
+    timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
+
+    function pad(unit){
+        return (("0") + unit).length > 2 ?  unit : "0"+unit;
+        // Basicamete esto:
+        //     case = "0" + unit;
+        //     if(case.length > 2){
+        //         return unit;
+        //     }
+        //     else {return case}
+        // osease si lo extenso del texto luego de sumarle "0", supera 2 digitos, no le hagas nada, si no, devuevelo sumado, pa hacer el formato
+        
+    }
+}
+ */
+
+
 // &[rock paper scissors game | HTML | CSS          -   06:35:11]
+/* 
+const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const choiceBtns = document.querySelectorAll(".choiceBtn");
+
+let player;
+let computer;
+let result;
+
+choiceBtns.forEach(button => button.addEventListener("click", () => {
+    player = button.textContent;    //+ Cual Boton le demos, cual boton llame al listener, sera del cual copiaremos la "seleccion" (el texto del h1)
+    computerTurn();
+
+    playerText.textContent = `Player: ${player}`;
+    computerText.textContent = `Computer: ${computer}`;
+    resultText.textContent = checkWinner();
+
+}));
+
+
+function computerTurn (){
+    const randNum = Math.floor((Math.random() * 3) + 1);    //+ 3 Posibilidades
+
+    switch(randNum){
+        case 1:
+            computer = "ROCK";
+            break;
+        case 2:
+            computer = "PAPER";
+            break;
+        case 3:
+            computer = "SCISSORS";
+            break;
+    }
+}
+function checkWinner(){
+    if(player == computer){
+        return "Draw!";
+    }
+    else if(computer == "ROCK"){    //+ si la pc eligio roca
+        return (player == "PAPER") ? "You Win!" : "You LOSE!!"; //+ y nosotros papel, ganamos
+    }
+    else if(computer == "PAPER"){    //+ si la pc eligio papel
+        return (player == "SCISSORS") ? "You Win!" : "You LOSE!!"; //+ y nosotros tijeras, ganamos
+    }
+    else if(computer == "SCISSORS"){    //+ si la pc eligio tijeras
+        return (player == "ROCK") ? "You Win!" : "You LOSE!!"; //+ y nosotros roca, ganamos
+    }
+}
+ */
+
+
 // &[tictactoe game | HTML | CSS          -   06:46:46]
+/* 
+const cells = document.querySelectorAll(".cell");
+const statusText = document.querySelector("#statusText");
+const restartBtn = document.querySelector("#restartBtn");
+const windConditions = [    //+ Combinaciones de pos de todos las posibles formas de Ganar
+    [0,1,2],    //+     <-> Horizontal
+    [3,4,5],    //+     <-> Horizontal
+    [6,7,8],    //+     <-> Horizontal
+    [0,3,6],    //+     |   Vertical
+    [1,4,7],    //+     |   Vertical
+    [2,5,8],    //+     |   Vertical
+    [0,4,8],    //+     \   Diagonal
+    [2,4,6]     //+     /   Diagonal
+];
+let options = ["","","","","","","","",""]; //+ Texto de las Columnas
+let currentPlayer = "X";
+let running = false;
+
+initGame();
+
+
+function initGame(){
+    cells.forEach(cell => {cell.addEventListener("click", cellClicked)});
+    restartBtn.addEventListener("click", restartGame);
+    statusText.textcontent = `${currentPlayer}''s Turn`;
+    running = true;
+}
+
+function cellClicked(){
+    const cellIndex = this.getAttribute("cellIndex");    //+ Obtener el atributo creado por nosotros
+
+    if(options[cellIndex] != "" || !running){   //+ Si no esta vacio, o si no se esta jugando
+        return;
+    }
+    updateCell(this, cellIndex);
+    checkWinner();
+};
+
+function updateCell(cell, index){
+    options[index] = currentPlayer;
+    cell.textContent = currentPlayer;
+};
+
+function changePlayer(){
+    currentPlayer = ( currentPlayer == "X") ? "O" : "X";
+    statusText.textContent = `${currentPlayer}'s Turn`;
+}
+
+function checkWinner(){
+    let roundWon = false;
+    for(let i = 0; i < windConditions.length; i++){
+        const condition = windConditions[i];    //+ Para pasar por todas las condiciones
+        const cellA = options[condition[0]];    //+ chekear cada pos de las condiciones individualmente
+        const cellB = options[condition[1]];
+        const cellC = options[condition[2]];
+
+        if(cellA == "" || cellB == "" || cellC == ""){
+            continue;   //+ Skippear la iteracion
+        }
+        if(cellA == cellB && cellB == cellC){
+            roundWon = true;
+            break;
+        }
+    }
+
+    if(roundWon){
+        statusText.textContent = `${currentPlayer} Wins!`;
+        running = false;
+    }
+    else if(!options.includes("")){ //+ Si nuestra tablero se quedo sin espacio posible, y no se gano ya
+        statusText.textContent = `Draw!`;
+        running = false;
+    }
+    else{changePlayer();}
+}
+
+function restartGame(){
+    currentPlayer = "X";
+    options = ["","","","","","","","",""];
+    statusText.textContent = `${currentPlayer}'s Turn`;
+    cells.forEach(cell=>{cell.textContent = "";});
+    running = true;
+};
+ */
+
+
 // &[snake game | HTML | CSS          -   07:05:43]
+
+const gameBoard = document.querySelector("#gameBoard");
+const ctx = gameBoard.getContext("2d");
+const scoreText = document.querySelector("#scoreText");
+const resetBtn = document.querySelector("#resetBtn");
+
+const gameWidth = gameBoard.width;      //+ Los podemos acceder al estar puestos en el HTML directamemte
+const gameHeight = gameBoard.height;    //+ Si se ponen en el CSS no podemos acceder a estos de esta forma (con el getWidth) asumo
+const boardBackground = "white";
+const snakeColor = "lightgreen";
+const snakeBorder = "black";
+const foodColor = "red";
+const unitSize = 25;
+
+let running = false;
+let xVelocity = unitSize;
+let yVelocity = 0;
+let foodX;
+let foodY;
+let score = 0;
+let tickSpeed = 25; //+Milis
+
+let snake = [   //+ Coordenadas en forma de Objetos, caa Objeto es una parte del cuerpo
+    {x:unitSize * 4, y:0},
+    {x:unitSize * 3, y:0},
+    {x:unitSize * 2, y:0},
+    {x:unitSize * 1, y:0},
+    {x:0, y:0},
+];
+
+window.addEventListener("keydown", changeDirection);
+resetBtn.addEventListener("click", resetGame);
+
+gameStart();
+
+function gameStart(){
+    running = true;
+    scoreText.textContent = score;
+    createFood();
+    drawFood();
+    nextTick();
+};
+function nextTick(){
+    if(running){
+        setTimeout(() => {
+            clearBoard();
+            drawFood();
+            moveSnake();
+            drawSnake();
+            checkGameOver();
+            nextTick();
+        }, tickSpeed); //+ Milis para cada Tick
+    } else {displayGameOver();}
+};
+function clearBoard(){
+    ctx.fillStyle = boardBackground;
+    ctx.fillRect(0, 0, gameWidth, gameHeight);
+};
+function createFood(){
+    function randomFood(min, max){
+        //+ Numero Random, entre lo minimo y max del "tablero", entre el tamaño de cada celda * tamaño de la celda (Coordenada verdadera)
+        const randNum = Math.round(((Math.random() * max - min) + min) / unitSize) * unitSize;
+        return randNum;
+    }
+
+    foodX = randomFood(0, gameWidth-unitSize);
+    foodY = randomFood(0, gameWidth-unitSize);
+};
+function drawFood(){
+    ctx.fillStyle = foodColor;
+    ctx.fillRect(foodX, foodY, unitSize, unitSize);
+};
+function moveSnake(){
+    //+ To Not Be Able to go Out of Bounds
+    //if(snake[0].x+ xVelocity > gameWidth-unitSize || snake[0].x+ xVelocity < 0){return;}
+    //if(snake[0].y+ yVelocity > gameHeight-unitSize || snake[0].y+ yVelocity < 0){return;}
+    const head = {
+        x: snake[0].x + xVelocity, 
+        y: snake[0].y + yVelocity
+    };    //+ Nuevo Objeto en las coordenadas en que nos dirigimos
+    snake.unshift(head);    //+ Agregamos la Cabeza
+
+    //& Si Cabeza de la Serpiente Colisiona con la Comida
+    if(snake[0].x == foodX && snake[0].y == foodY){
+        score++;
+        scoreText.textContent = score;
+        createFood();
+    }else{
+        snake.pop();    //+ Eliminar la Cola por si acaso
+    }
+};
+function drawSnake(){
+    ctx.fillStyle = snakeColor;
+    ctx.strokeStyle = snakeBorder;
+    ctx.lineWidth = 5;
+    snake.forEach((snakePart)=>{
+        ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);   //+ Borde del Cuerpo
+        ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);     //+ Cuerpo
+    })
+};
+function changeDirection(event){
+    const keyPressed = event.keyCode;   //+ Codigo de la tecla pulsada, que llamo al evento
+    const LEFT = 37;
+    const UP = 38;
+    const RIGHT = 39;
+    const DOWN = 40;
+
+    const goingUp = (yVelocity == -unitSize);
+    const goingDown = (yVelocity == unitSize);
+    const goingLeft = (xVelocity == -unitSize);
+    const goingRight = (xVelocity == unitSize);
+
+    switch (true) {//+ Si alguna condifion de abajo es verdadera
+        case (keyPressed == UP && !goingDown):   //+ No Poder regresar, porque si no nos matamos
+            xVelocity = 0;
+            yVelocity = -unitSize;
+            break;
+        case (keyPressed == DOWN && !goingUp):   //+ No Poder regresar, porque si no nos matamos
+            xVelocity = 0;
+            yVelocity = unitSize;
+            break;
+        case (keyPressed == LEFT && !goingRight):   //+ No Poder regresar, porque si no nos matamos
+            xVelocity = -unitSize;
+            yVelocity = 0;
+            break;
+        case (keyPressed == RIGHT && !goingLeft):   //+ No Poder regresar, porque si no nos matamos
+            xVelocity = unitSize;
+            yVelocity = 0;
+            break;
+        default:
+            break;
+    }
+};
+function checkGameOver(){
+    switch (true) { //+ Si alguna condifion de abajo es verdadera
+        case (snake[0].x < 0):
+        case (snake[0].x >= gameWidth):
+        case (snake[0].y < 0):
+        case (snake[0].y >= gameHeight):
+            running = false;
+            break;
+    }
+
+    for(let i = 1; i < snake.length; i++){  //+ Chekear todas las partes, Excepto la Cabeza, que es la comparacion
+        if(snake[i].x == snake[0].x && snake[i].y == snake[0].y){   //+ Si la Cabeza Colisiona Con alguna Parte (Misma coordenada)
+            running = false;
+        }
+    }
+};
+function displayGameOver(){
+    ctx.font = "50px Mv Boli";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2);
+    running = false;
+};
+function resetGame(){
+    score = 0;
+    xVelocity = unitSize;
+    yVelocity = 0;
+    snake = [   //+ Coordenadas en forma de Objetos, caa Objeto es una parte del cuerpo
+        {x:unitSize * 4, y:0},
+        {x:unitSize * 3, y:0},
+        {x:unitSize * 2, y:0},
+        {x:unitSize * 1, y:0},
+        {x:0, y:0},
+    ];
+    gameStart();
+};
+
+
 // &[pong game | HTML | CSS          -   07:34:32]
 // &[END |          -   ]
