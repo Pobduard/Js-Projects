@@ -2470,9 +2470,9 @@ function restartGame(){
 
 
 // &[snake game | HTML | CSS          -   07:05:43]
-
+/* 
 const gameBoard = document.querySelector("#gameBoard");
-const ctx = gameBoard.getContext("2d");
+const ctx = gameBoard.getContext("2d");     //+Context, to Draw on
 const scoreText = document.querySelector("#scoreText");
 const resetBtn = document.querySelector("#resetBtn");
 
@@ -2639,7 +2639,220 @@ function resetGame(){
     ];
     gameStart();
 };
+ */
 
 
 // &[pong game | HTML | CSS          -   07:34:32]
+
+const gameBoard = document.querySelector("#gameBoard");
+const ctx = gameBoard.getContext("2d");     //+Context, to Draw on
+const scoreText = document.querySelector("#scoreText");
+const resetBtn = document.querySelector("#resetBtn");
+
+const gameWidth = gameBoard.width;
+const gameHeight = gameBoard.height;
+
+const boardBackground = "forestgreen";
+const paddle1Color = "lightblue";
+const paddle2Color = "orange";
+const paddleBorder = "black";
+const ballColor = "yellow";
+const ballBorderColor = "black";
+const ballRadius = 12.5;    //+ Diametro = 25, porque es (Radius*2)
+const paddleSpeed = 50;
+
+let intervalId;
+let ballSpeed = 1;
+let ballX = gameWidth / 2;
+let ballY = gameHeight / 2;
+let ballXDirection = 0;
+let ballYDirection = 0;
+let player1Score = 0;
+let player2Score = 0;
+
+let paddle1 = {
+    width: 25,
+    height: 100,
+    x: 0,
+    y: (gameHeight/2)
+};
+paddle1.y = paddle1.y-paddle1.height;
+
+
+let paddle2 = {
+    width: 25,
+    height: 100,
+    x: gameWidth-25,
+    y: (gameHeight/2)
+};
+paddle2.y = paddle2.y-paddle2.height;
+
+window.addEventListener("keydown", changeDirection);
+resetBtn.addEventListener("click", resetGame);
+
+gameStart();
+drawPaddles();
+
+function gameStart(){
+    createBall();
+    nextTick();
+};
+function nextTick(){
+    intervalId = setTimeout(()=>{
+        clearBoard();
+        drawPaddles();
+        moveBall();
+        drawBall(ballX, ballY);
+        checkCollision();
+        nextTick();
+    }, 10)
+};
+function clearBoard(){
+    ctx.fillStyle = boardBackground;
+    ctx.fillRect(0, 0, gameWidth, gameHeight);
+};
+function drawPaddles(){
+    ctx.strokeStyle = paddleBorder;
+    ctx.lineWidth = 5;
+
+    ctx.fillStyle = paddle1Color;
+    ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+    ctx.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+
+    ctx.fillStyle = paddle2Color;
+    ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+    ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+};
+function createBall(){
+    ballSpeed = 1;
+    if(Math.round(Math.random()) == 1){ //+ Numero Random para Elegir hacia donde va la Bola
+        ballXDirection = 1;
+    } 
+    else{
+        ballXDirection = -1;
+    }
+    if(Math.round(Math.random()) == 1){ //+ Numero Random para Elegir hacia donde va la Bola
+        ballYDirection = 1;
+    } 
+    else{
+        ballYDirection = -1;
+    }
+
+    ballX = gameWidth/2;
+    ballY = gameHeight/2;
+    drawBall(ballX, ballY);
+};
+function moveBall(){
+    ballX += ballSpeed * ballXDirection;
+    ballY += ballSpeed * ballYDirection;
+};
+function drawBall(ballX, ballY){
+    ctx.fillStyle = ballColor;
+    ctx.strokeStyle = ballBorderColor;
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, ballRadius, 0, 2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+};
+function checkCollision(){
+    if(ballY <= 0 + ballRadius){
+        ballYDirection *= -1;
+    }
+    if(ballY >= gameHeight - ballRadius){
+        ballYDirection *= -1;
+    }
+    if(ballX <= 0){
+        player2Score++;
+        updateScore();
+        createBall();
+        return;
+    }
+    if(ballX >= gameWidth){
+        player1Score++;
+        updateScore();
+        createBall();
+        return;
+    }
+
+    if(ballX <= (paddle1.x + paddle1.width + ballRadius)){  //+ Mayor a su anchor
+        if(ballY > paddle1.y && ballY < paddle1.y+paddle1.height){  //+ Dentro su Alto
+            ballX = (paddle1.x+paddle1.width)+ballRadius;   //+ Si la bola se Atasca dentro del Paddle
+            ballXDirection *= -1;
+            ballSpeed+= 0.5;
+        }
+    }
+
+    if(ballX >= (paddle2.x - ballRadius)){  //+ Menor a su X
+        if(ballY > paddle2.y && ballY < paddle2.y+paddle2.height){  //+ Dentro su Alto
+            ballX = paddle2.x-ballRadius;   //+ Si la bola se Atasca dentro del Paddle
+            ballXDirection *= -1;
+            ballSpeed+= 0.5;
+        }
+    }
+};
+function changeDirection(event){
+    const keyPressed = event.keyCode;
+    const paddle1Up = 87;
+    const paddle1Down = 83;
+    const paddle2Up = 38;
+    const paddle2Down = 40;
+
+    switch(keyPressed){
+        case(paddle1Up):
+            if(paddle1.y > 0){
+                paddle1.y -= paddleSpeed;
+            }
+            break;
+        case(paddle1Down):
+            if(paddle1.y < gameHeight-paddle1.height){
+                paddle1.y += paddleSpeed;
+            }
+            break;
+        case(paddle2Up):
+            if(paddle2.y > 0){
+                paddle2.y -= paddleSpeed;
+            }
+            break;
+        case(paddle2Down):
+            if(paddle2.y < gameHeight-paddle2.height){
+                paddle2.y += paddleSpeed;
+            }
+            break;
+    }
+};
+function updateScore(){
+    scoreText.textContent = `${player1Score} : ${player2Score}`
+};
+function resetGame(){
+    player1Score = 0;
+    player2Score = 0;
+    paddle1 = {
+        width: 25,
+        height: 100,
+        x: 0,
+        y: (gameHeight/2)
+    };
+    paddle1.y = paddle1.y-paddle1.height;
+    
+    
+    paddle2 = {
+        width: 25,
+        height: 100,
+        x: gameWidth-25,
+        y: (gameHeight/2)
+    };
+    paddle2.y = paddle2.y-paddle2.height;
+
+    ballSpeed = 1;
+    ballX = gameWidth / 2;
+    ballY = gameHeight / 2;
+    ballXDirection = 0;
+    ballYDirection = 0;
+    updateScore();
+    clearInterval(intervalId);
+    gameStart();
+};
+
+
 // &[END |          -   ]
