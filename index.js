@@ -2643,7 +2643,7 @@ function resetGame(){
 
 
 // &[pong game | HTML | CSS          -   07:34:32]
-
+/* 
 const gameBoard = document.querySelector("#gameBoard");
 const ctx = gameBoard.getContext("2d");     //+Context, to Draw on
 const scoreText = document.querySelector("#scoreText");
@@ -2853,6 +2853,7 @@ function resetGame(){
     clearInterval(intervalId);
     gameStart();
 };
+ */
 
 
 // &[END |          -   ]

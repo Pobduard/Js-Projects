@@ -196,7 +196,7 @@
 
 
 /* &[pong game | HTML | CSS          -   07:34:32] */
-
+/* 
 #gameContainer{
     text-align: center;
 }
@@ -217,6 +217,169 @@
     border-radius: 15px;
     cursor: pointer;
 }
+ */
 
 
+/* &[END      -   ] */
+/* &[END      -   ] */
+/* &[END      -   ] */
+/* &[END      -   ] */
+
+
+
+
+/* &[CSS Course      -   00:00:00] */
+/* 
+body{
+    font: Acceder a Elementos completos es de esta forma "[elemento]{}";
+    background-color: black;
+}
+h1{
+    color: white;
+}
+p{
+    background-color: grey;
+    color: white
+}
+
+
+#p1{
+    color: tomato;
+    font: Targettear 1 solo coso a la vez, con la Id "#[Id]";
+}
+.odd{
+    font: Para clases se accede con ".[className]";
+    color: red;
+}
+.even{
+    color: blue;
+}
+ */
+
+
+/* &[fonts       -   00:11:00] */
+/* 
+body{
+    background-color: black;
+}
+h1{
+    color: white;
+    font: "Para una Font de Google Fonts, ponemos el href dentro de la head, luego de eso si ya la podemos usar en el CSS, asi:";
+    font-family: "Press Start 2P", "consolas", sans-serif;
+}
+p{
+    color: #00FF73;
+    font: "En caso de que alguno no Soporte la 1ra Font, Uara la siguiente separada por commas";
+    font-family: "consolas", sans-serif;
+    font-style: italic;         font: "Estilos de Letra";
+    font-weight: bold;          font: "Negritas";
+    text-decoration: cyan dotted underline;  font:"Decoraciones, se les puede poner color, forma de la linea, y que tipo de linea es";
+    font-size: 18px;
+}
+ */
+
+/* &[borders       -   00:14:20] */
+/* 
+h1{
+    border-top-style: dotted;   font:"Podemos Aislar Lados";
+    border-bottom-style: dotted;
+    border-left-style: double;
+    border-left-width: 10px;
+    border-left-color: orange;
+}
+p{
+    border-style: outset;   font:"Hay Muchos Mas: solid, Dotted, Dashed, double, ridge, inset, outset";
+    border-width: 5px;      font:"Ancho del Borde";
+    border-color: gold;     font:"Color del Borde";
+    border-radius: 10px;      font:"Suavizado para las esquinas, mientas mas grande, mas suavizadas seran";
+    padding: 5px;            font:"Espacio entre el Texto y el Borde";
+}
+ */
+
+
+/* &[background       -   00:16:56] */
+/* 
+body{
+    font:"Meter Imagen de Fondo";
+    background-image: url("holodogs.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;      font:"La Imagen se Re-Size de forma dinamica";
+}
+h1{
+    font: "Otro Tipo de Background, 1 colores a la vez en forma de gradiente";
+    font: "To [lado] es para elegir hacia donde va a gradiente";
+    background: linear-gradient(to right, skyblue, white);
+    font: "Evitamos que se repita una y otra vez por cada Elemento";
+    background-repeat: no-repeat;
+    font: "Se Alargue y Ajuste a como sea la Pestaña";
+    background-attachment: fixed;
+}
+p{
+    background: linear-gradient(to left, skyblue, white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+ */
+
+
+/* &[margins       -   00:20:52] */
+/* 
+body{
+    margin: 0;      font:"Espacio Alrededor de un Elemento, osea con la Pestaña en si";
+}
+#box1{
+    border: 5px double;
+    width: 250px;
+    height: 250px;
+    font-size: 22px;
+    background-color: greenyellow;
+
+
+    padding: 50px;      font:"Margen Entre el Elemento y el Contenido del mismo";
+    margin-top: 50px;   font:"Espacio Alrededor de un Elemento, osea con la Pestaña en si";
+    margin-left: 50px;   font:"Espacio Alrededor de un Elemento, osea con la Pestaña en si";
+    margin-left: 50%;   font:"Ahora Usaria el 50% del espacio que sea la Pestaña";
+
+    margin-left: auto;     font:"Se alcula de forma automaica que se pegue a se lado";
+    margin-right: auto;     font:"Si Tanto Left como Right estan en auto, se mantendra en el centro";
+    font:"Recordar que en el buscador podemos ver mejor los margenes de cada elemento (se muestran los valores propiedades y demas)";
+}
+#box2{
+    border: 5px double;
+    width: 250px;
+    height: 250px;
+    font-size: 22px;
+    background-color: dodgerblue;
+}
+ */
+
+
+/* &[float       -   00:25:44] */
+/* 
+.box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    font-size: 40px;
+    text-align: center;
+    background: tomato;
+
+    font:"Se Saca del Flow Normal del Documento, y lo demas lo sigue despues";
+    float: left;
+}
+p{
+    font:"Limpia lo Hecho por el float, y devuelve el flow a lo normal en el elemento";
+    clear: left right both;
+}
+ */
+
+
+/* &[position       -   00:29:01] */
+/* &[pseudo classes      -   00:34:58] */
+/* &[shadows       -   00:40:47] */
+/* &[icons      -   00:43:43] */
+/* &[transform       -   00:46:45] */
+/* &[animation       -   00:50:54] */
 /* &[] */
