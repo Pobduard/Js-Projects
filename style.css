@@ -844,6 +844,90 @@ img{
 }
  */
 /* &[03:47:23 animations 🎬] */	
+/* 
+body{background-color: hsl(0,0%,12%);}
+#box1{
+		font:"Basicamente hacer animaciones a pata";
+		font:"Para eso empezamos a definir los \"keyframes\", que es el nombre de cada animacion";
+		font:"Con ese nombre o \"Atributo\" definimos que cosa lleva que animacion";
+		font:"from: Posicion donde empieza";
+		font:"to: Donde va a ir";
+	width: 250px;
+	height: 250px;
+	background-color: hsl(0,100%,70%);
+	font-size: 13em;
+	text-align: center;
+	animation-name: shrink, colorChange, glow;	font:"Definimos que animacion usa, si queremos varias, las ponemos con commas separadas";
+	animation-duration: 2s;		font:"Definimos que cauto tiempo tarda en llevar a cabo toda la animacion";
+		font:"Cuando lleva es un % en vez de cosas tipo from o to, es que la animacion se va a llevar a cabo (completa) en el % del tiempo";
+		font:"el % restante del tiempo solo se va a revertir/volver a como era";
+		font:"Con el %, tambien podemos cambiar que pasa en cada % en sucesion";
+	font:"opacity: 0;	=	Desaparecer objeto";	
+	font:"opacity: 1;	=	Aparecer objeto";	
+	animation-iteration-count: 2;	font:"Puede ser \"infinite\" tambien";
+	animation-direction: normal;
+	animation-play-state: running;	font:"Pausa la animacion con \"paused\", util para cambiar desde js, se vuelve a poner con \"running\"";
+	animation-timing-function: cubic-bezier(0.93,-0.83, 0.18, 1.29);	
+		font:"ease-in-out = Default, la velocidad de la animacion";
+		font:"linear = velocidad constante";
+		font:"steps(x) = x frames de la animacion (distribuidos uniformemente), como stop-motion";
+
+
+}
+#box1:hover{
+	font:"Si quisieramos que la animacion se lleve a cabo al estar en [hover]";
+	font:"Solo tendriamos que poner el animation-name, animation-duration y demas cosas de animation aqui";
+}
+img{width: 250px;
+	height: 250px;
+	background-color: hsl(0,100%,70%);
+	font-size: 13em;
+	text-align: center;}
+img:hover{
+	animation-name: shrink, colorChange, glow;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-play-state: running;
+	animation-timing-function: linear;
+}
+@keyframes slideLeft{
+	from{transform: translateX(100%)}
+}
+@keyframes slideRight{
+	to{transform: translateX(300%)}
+}
+@keyframes slideUp{
+	from{transform: translateY(300%)}
+}
+@keyframes slideDowm{
+	to{transform: translateY(300%)}
+}
+@keyframes rotate{
+	50%{transform: rotateZ(360deg)}
+}
+@keyframes grow{
+	50%{transform: scale(2,2) translate(25%, 25%)}
+}
+@keyframes shrink{
+	50%{transform: scale(0.5,0.5) translate(-50%, -50%)}
+}
+@keyframes fade{
+	50%{opacity: 1;}
+}
+@keyframes colorChange{
+	0%{background-color: hsl(0,100%,70%);}
+	20%{background-color: hsl(35,100%,70%);}
+	40%{background-color: hsl(63,100%,70%);}
+	60%{background-color: hsl(103,100%,70%);}
+	80%{background-color: hsl(201,100%,70%);}
+	100%{background-color: hsl(268,100%,70%);}
+}
+@keyframes glow{
+	50%{box-shadow: 0px 0px 50px yellow;}
+}
+ */
+
 /* &[shadows       -   00:40:47] */
 /* &[icons      -   00:43:43] */
 /* &[transform       -   00:46:45] */
