@@ -679,9 +679,170 @@ footer{
  */
 
 /* &[03:14:13 image gallery 📷] */	
+/* 
+.gallery{
+    display: inline-block;
+    border: 1px solid hsl(0,0%,60%);
+    margin: 5px;
+    width: 200px;
+}
+.gallery .description{
+    padding: 10px;
+    text-align: center;
+}
+.gallery:hover{border: 1px solid hsl(0,0%,20%);}
+.gallery img{
+    font: "Basicamente puso que cada img sea el 100%, del width";
+    font: "Que esta en el \"Galley\"";
+    width: 100%;
+    height: auto;
+}
+ */
+
 /* &[03:19:50 icons 🐤] */	
+/* 
+.icons{
+    text-align: center;
+}
+.icons a{
+    text-decoration: none;
+    margin-right: 20px;
+}
+.fa-solid.fa-house.fa-5x{
+    font:"Como los iconos son importados de la pagina";
+    font:"Para modificarlos, tenemos que ir a esus clases de esta forma";
+    font:"Los espacios se reemplazaron con \" . \" no obstante";
+    color: hsl(0, 0%, 66%);
+}
+.fa-solid.fa-house.fa-5x:hover{
+    color: hsl(0, 0%, 76%);
+}
+.fa-brands.fa-twitter.fa-5x{color:hsl(188, 100%, 50%);}
+.fa-brands.fa-twitter.fa-5x:hover{color:hsl(188, 100%, 70%);}
+.fa-brands.fa-youtube.fa-5x{color:hsl(0,100%,50%);}
+.fa-brands.fa-youtube.fa-5x:hover{color:hsl(0,100%,70%);}
+.fa-brands.fa-tiktok.fa-5x{color:hsl(0,0%,10%);}
+.fa-brands.fa-tiktok.fa-5x:hover{color:hsl(0,0%,30%);}
+ */
+
 /* &[03:28:23 flexbox 💪] */	
-/* &[03:38:23 transformations 🔄] */	
+/* 
+.container{
+    display: flex;
+    font:"flex-direction: row;";
+        font:"flex-direction: row;   = La Default de todas, en fila";
+        font:"flex-direction: row-reverse;   = Pone la default en fila reversa";
+        font:"flex-direction: column;   = Pone En Columna";
+        font:"flex-direction: column-reverse;   = Pone En Columna reversa";
+    border: 10px solid black;
+    height: 90vh;
+    font:"justify-content: flex-start;";
+        font:"Alineacion en la main axis, osease en la X por asi decirlo, a lo ancho, <--->";
+        font:"justify-content: flex-start = Default";
+        font:"justify-content: flex-end = Justificado a la derecha";
+        font:"justify-content: center = Justificado al centro";
+        font:"justify-content: space-between = Justificado para llenar todo el espacio, con cada cosa dentro del flex teniendo el mismo espacio entre si";
+        font:"justify-content: space-around = Justificado para llenar todo el espacio, con el mismo espacio entre todo (bordes incluidos)";
+        font:"justify-content: space-evenly = Justificado para llenar todo el espacio, con el mismo espacio entre todo (bordes incluidos)";
+    font:"align-items: flex-start;";
+        font:"Mismos tipos de alineacion que antes, solo en la Y, a lo alto";
+        font:"align-items: baseline;    =   Mantiene el texto en alineacion al demas de la linea (Lo pone mas pequeño si es requerido pa que quepa)";
+    font:"flex-wrap: wrap;";
+        font:"Si no hay espacio, los mueve a la sig linea";
+        font:"flex-wrap: nowrap;    =   Default";
+        font:"flex-wrap: wrap;    =   Activa";
+        font:"flex-wrap: wrap/reverse;    =   Activa en Reversa";
+    font:"align-content: flex-start;";
+        font:"align-content: flex-start;    =   Alineado arriba";
+        font:"align-content: flex-end;    =   Alineado abajo";
+        font:"align-content: center;    =   Alineado centro";
+        font:"align-content: space-evenly    =   Alineado a lo largo de todo";
+        font:"align-content: space-between    =   Alineado arriba y abajo";
+    font:"column-gap: 1em;";    font:"Espacio entre columnas";
+    font:"row-gap: 1em;";    font:"Espacio entre Filas";
+}
+.box{
+    width: 150px;
+    height: 150px;
+    font-size: 8em;
+    text-align: center;
+    border-radius: 15px;
+}
+#box1{
+    background-color: hsl(0,100%,70%);
+    font:"align-self: start;    =   inicio";
+    font:"align-self: center;    =   centro";
+    font:"align-self: end;    =   final";
+    font:"order: -1;    =   Cambia la posicion total de donde deberia estar";
+}
+#box2{
+    background-color: hsl(52,100%,70%);
+}
+#box3{
+    background-color: hsl(111,100%,70%);
+}
+#box4{
+    background-color: hsl(201,100%,70%);
+}
+ */
+
+/* &[03:38:23 transformations 🔄] */
+/* 	
+body{margin: 0;}
+.box{
+	width: 250px;
+	height: 250px;
+	border: 5px solid;
+	font-size: 13em;
+	text-align: center;
+
+	transform: translateX(100px) rotateZ(45deg) scale(0.5);
+}
+#box1{
+	
+	background-color: hsl(120,100%,70%);
+
+	font:"transform: translateX(-90%);";
+		font:"Mueve los elementos el X que le pasemos SOLO EN LA X";
+		font:"Si es %, es el % de tamaño de la imagen";
+	font:"transform: translateY(-50%);";
+		font:"Mueve los elementos el Y que le pasemos SOLO EN LA Y";
+	font:"transform: translate(-50%, -50%);";
+		font:"Mueve los elementos el Y que le pasemos en ambas Axis";
+
+	font:"transform: rotateX(180deg);";
+		font:"Rota los elementos X grados en la X";
+	font:"transform: rotateY(180deg);";
+		font:"Rota los elementos Y grados en la Y";
+	font:"transform: rotate(180deg);";
+		font:"Rota los elementos X grados en la ambos Axis";
+	font:"transform: rotateZ(180deg);";
+		font:"Rota los elementos Z grados en la Z (rotacion en verdad)";
+
+	font:"transform: scaleX(1);";
+		font:"Escalar en forma de multiplicacion, osea (Original + [Original * puesto])";
+	font:"transform: scaleY(1);";
+		font:"Solo en la Y";
+	font:"transform: scale(1, 1.5);";
+		font:"En Ambas Axis";
+
+	font:"transform: skewX(45deg)";
+	font:"transform: skewY(45deg)";
+	font:"transform: skew(45deg, 30deg)";
+
+	font:"Tambien podemos poner varias transformaciones al mismo tiempo";
+	font:"transform: translateX(100%) rotateZ(90deg) scale(0.5);";
+}
+#box2{
+	background-color: hsl(0,100%,70%);
+}
+#box3{
+	background-color: hsl(217,100%,70%);
+}
+img{
+	transform: translateX(-50%) rotateZ(180deg) scale(0.5);
+}
+ */
 /* &[03:47:23 animations 🎬] */	
 /* &[shadows       -   00:40:47] */
 /* &[icons      -   00:43:43] */
