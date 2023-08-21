@@ -377,7 +377,312 @@ p{
 
 
 /* &[position       -   00:29:01] */
+/*#p{
+	font: "Mira donde se van a poner los elementos";
+} */
+
+/* #box1{
+	font: "relative: Mueve el elemento relativo a donde deberia estar normalmente luego con left/top y asi, se le puede anadir o quitar px)";
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	position: relative;
+	top: 100px;
+	left: 100px;
+} */
+
+/* #box2{
+	font: "fixed: Mueve el elemento relativo al Browser/Navegador, NO A SUS CONTENIDOS (a la ventana pues)";
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+} */
+
+/* #box3{
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	position: fixed;
+	top: 100px;
+	left: 100px;
+}
+#box4{
+	font: "absolute: Relativo a su ancestro mas grande (su contenedor por asi decirlo, en jerarquia)";
+	width: 100px;
+	height: 100px;
+	background-color: orange;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+} */
+
+/* 
+#box5{
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	position: sticky;
+	top: 0px;
+}
+#box6{
+	font: "sticky: Posicionado, en base a la posicion actual del scroll";
+	width: 100px;
+	height: 100px;
+	background-color: orange;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+}
+ */
+
+/* &[02:24:15 combinators ➕] */
+/* 
+#container{
+	border: 2px solid;
+}
+#container p{
+	background-color: yellow;
+}
+#container>p{
+	font-weight: bold;
+}
+#container~p{
+	background-color: lightgreen;
+}
+#container+p{
+	font-family: "Press Start 2P";
+}
+ */
+
 /* &[pseudo classes      -   00:34:58] */
+/* 
+#p{font:"Modifican un elemento solo cuando estan en cierto estado";}
+
+button:hover{
+	font-size: 1.1em;
+	background-color: hsl(106,90%,70%);
+}
+button:active{
+	font-size: 1.1em;
+	background-color: hsl(0,90%,70%);
+}
+
+a:link{
+	color: hsl(221,100%,74%);
+}
+a:hover{
+	color: orange;
+	font-size: 1.1em;
+}
+a:active{
+	color: green;
+	font-size: 1.1em;
+}
+a:visited{
+	color:grey;
+}
+
+li:hover{
+	background-color: yellow;
+}
+li:not(:hover){
+	background-color: lightpink;
+}
+li:nth-child(3n+2){
+	font: "Numero normal es nth";
+	font: "even/odd, los correspondientes";
+	font: "[]n, cada [] posiciones";
+	font: "[]n + algo, ese algo seria un offset, ese algo tambien se puede ca,biar desde js como con una variable y jugar";
+	background-color: orange;
+}
+
+#greeting p{
+	background-color: lightblue;
+	padding: 10px;
+	display: none;
+}
+#greeting:hover p{
+	display: block;
+}
+ */
+
+/* &[02:36:50 pseudo-elements ✔] */	
+/* 
+h1::first-letter{
+    font-size: 2em;
+    font-style: italic;
+}
+p::first-line{
+    background-color: yellow;
+}
+p::selection{
+    font: "Cualquier cosa que este seleccionada por el mouse";
+    color:lightgreen;
+    background-color: darkslategray;
+}
+#fruit li::before{
+    font: "Añadir algo antes de cada linea";
+}
+#fruit li::marker{
+    content: "✔";
+    color: green;
+}
+#apple::after{
+    content: "🍎";
+}
+#orange::after{
+    content: "🍊";
+}
+#banana::after{
+    content: "🍌";
+}
+ */
+
+
+/* &[02:42:46 pagination 🕮] */	
+/* 
+.pagination{
+    text-align: center;
+}
+.pagination a{
+    color: black;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: inline-block;
+}
+.pagination a.active{
+    background-color: lightgreen;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.pagination a:hover:not(.active){
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+ */
+
+/* &[02:51:44 dropdown menus 🔻] */	
+/* 
+.dropdown{
+    font: "Con esto, ahora si el botton solo forma parte de su area, osea del cuadrado";
+    font: "No de toda la linea donde esta ubicado";
+    display: inline-block;
+}
+.dropdown button{
+    background-color: hsl(0,0%,80%);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: hsl(0,0%,95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsl(0,0%,0%, 0.8);
+}
+.dropdown:hover .content{
+    display: block;
+}
+.dropdown:hover button{
+    background-color: hsl(0,0%,70%);
+}
+.dropdown a:hover{
+    background-color: hsl(0,0%,90%);
+}
+ */
+
+/* &[02:58:19 navigation bar 🧭] */	
+/* 
+body{margin: 0px;}
+main{margin-left: 20px; margin-right: 20px;}
+h1{text-align: center;}
+.navbar ul{
+    list-style-type: none;
+    background-color: hsl(0,0%,25%);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navbar a:hover{
+    background-color: hsl(0,0%,10%);
+}
+.navbar li{
+    float: left;
+}
+ */
+
+/* &[03:04:46 website layout 🗺️] */	
+/* 
+*{
+    font: "Modifica TODOS los elementos a la vez";
+    box-sizing: border-box;
+    font: "Hace que para calcular el width de la pagina total, se cuenten los paddings y demas";
+}
+body{margin: 0;}
+header{
+    background-color: hsl(0,0%,85%);
+    text-align: center;
+    padding: 25px;
+}
+.navbar{
+    background-color: hsl(0,0%,15%);
+    height: 50px;
+}
+aside{
+    width: 20%;
+    float: left;
+    padding: 10px;
+}
+section{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+article{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+footer{
+    display: block;
+    clear: both;
+    background-color: hsl(0,0%,85%);
+    text-align: center;
+    padding: 25px;
+}
+@media screen and (max-width:600px){
+    aside, section, article{
+        font: "Si y solo si estamos en un dispositivo con un display";
+        font: "de 600px o menos, es que esto se activa";
+        width: 100%;
+    }
+}
+ */
+
+/* &[03:14:13 image gallery 📷] */	
+/* &[03:19:50 icons 🐤] */	
+/* &[03:28:23 flexbox 💪] */	
+/* &[03:38:23 transformations 🔄] */	
+/* &[03:47:23 animations 🎬] */	
 /* &[shadows       -   00:40:47] */
 /* &[icons      -   00:43:43] */
 /* &[transform       -   00:46:45] */

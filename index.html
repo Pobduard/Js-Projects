@@ -409,8 +409,211 @@
 
 
 <!-- &[position       -   00:29:01]-->
+<!-- 
+    Position: "Mira donde se van a poner los elementos";
+    	relative: Mueve el elemento relativo a donde deberia estar normalmente (luego con left/top y asi, se le puede anadir o quitar px)
+    	fixed: Mueve el elemento relativo al Browser/Navegador, NO A SUS CONTENIDOS (a la ventana pues)
+    	absolute: Relativo a su ancestro mas grande (su contenedor por asi decirlo, en jerarquia)
+    	sticky: Posicionado, en base a la posicion actual del scroll
+				Osease, se va a mantener donde va, hasta que con el scroll pasemos mas alla de el, entonces es como fixed
+    	static: La de default/predeterminada
+ -->
+
+<!-- 
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3">
+		<div id="box4"></div>
+	</div>
+	<div id="box5">
+		<div id="box6"></div>
+	</div>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ -->
+
+
+<!-- &[combinators      -   02:24:15]-->
+<!-- 
+	combinators = Explican las relaciones entre selectores listados, se ponen tipo
+	[elemento/identificador][combinator][elemento/identificador] dentro del Css
+		[espacio] = descendiente
+		> = hijo
+		~ = hermano general
+		= = hermano adyacente
+ -->
+<!-- 
+ 	<div id="container">
+		<p>This is #1</p>
+		<p>This is #2</p>
+		<div>
+			<p>This is #3</p>
+		</div>
+	</div>
+
+	<p>This is #4</p>
+	<p>This is #5</p>
+ -->
+
 <!-- &[pseudo classes      -   00:34:58]-->
-<!-- &[shadows       -   00:40:47]-->
+<!-- 
+ 	<button>Click Me</button><br>
+
+ 	<a href="https://google.com">Google</a>
+
+	<ul>
+		<li>This is #1</li>
+		<li>This is #2</li>
+		<li>This is #3</li>
+		<li>This is #4</li>
+		<li>This is #5</li>
+		<li>This is #6</li>
+		<li>This is #7</li>
+		<li>This is #8</li>
+		<li>This is #9</li>
+	</ul>
+
+	<div id="greeting">Hover Here
+		<p>Hello</p>
+	</div>
+ -->
+
+<!-- &[pseudo classes      -   00:34:58]-->
+
+<!-- &[pseudo-elements       -   02:36:50]-->
+<!-- 
+	Palabras especiales "keyword" anadidas despues de un selector, usadas para
+	darle un estilo especifico a partes de un elemento
+
+	selector::pseudo-element
+
+	ej
+
+	h1::first-letter
+ -->
+<!-- 
+    <h1>Hello</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellat minus facilis labore ratione ad, voluptatum, recusandae incidunt aperiam dolores similique neque, velit amet voluptas corrupti non inventore provident iste.</p>
+
+    <ul id="fruit">
+        <li id="apple">Apple</li>
+        <li id="orange">Orange</li>
+        <li id="banana">Banana</li>
+    </ul>
+ -->
+
+<!-- &[pagination      -   02:42:46]-->
+<!-- 
+    Pagination:
+        Metodo en el que un docuemnto es seoarado entre paginas,
+        y a estas se les dan numeros/index
+ -->
+<!-- 
+    <h1>This is page #1</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nemo quasi, natus quibusdam neque et sapiente nihil a ullam ratione explicabo consequatur accusantium molestias dolore hic provident nesciunt illo perferendis.</p>
+
+    <div class="pagination">
+        <a href="index.html"><</a>
+        <a href="index.html" class="active">1</a>
+        <a href="page2.html">2</a>
+        <a href="page3.html">3</a>
+        <a href="page4.html">4</a>
+        <a href="page5.html">5</a>
+        <a href="page2.html">></a>
+    </div>
+ -->
+
+<!-- &[dropdown menus   -   02:51:44]-->
+<!-- 
+    <div class="dropdown">
+        <button>Food</button>
+        <div class="content">
+            <a href="">Apple</a>
+            <a href="">Orange</a>
+            <a href="">Banana</a>
+        </div>
+    </div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptate nesciunt voluptas numquam fugiat itaque aut, error fuga est ipsam? Est, dicta pariatur! Quae delectus sed porro! Dolore, quis? Aperiam!</p>
+ -->
+
+<!-- &[navigation bar   -   02:58:19]-->
+<!-- 
+    <h1>Bro Code</h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h3>This is the Home page</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus a nam at ratione eaque quas. Et autem rerum porro mollitia exercitationem facere accusantium est? Omnis ipsam animi maxime illo.</p>
+    </main>
+ -->
+
+<!-- &[website layout   -   03:04:46]-->
+<!-- 
+    semantic tags =     > Mantienen el contenido organizado
+                        > Mejor para el SEO (Search Engine Optimization)
+                        > Asiste a las pantallas y otra 
+                          ecnologia para accesibilidad
+    
+        <header>    =   contenido introductorio
+        <nav>       =   barras de navegacion, links
+        <main>      =   contenido principal (section, aside, article, div, etc...)
+        <section>   =   contenido dependiente de la pagina/necesario
+        <aside>     =   contenido en un lado
+        <article>   =   contenido independiente de la pagina (como informacion del autor)
+        <footer>    =   contenido de cerrada
+-->
+<!-- 
+<header>
+    <h2>Header</h2>
+</header>
+
+<nav class="navbar">
+
+</nav>
+
+<main>
+    <aside>
+        <h2>This is Aside</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id voluptas doloremque eaque voluptatem natus officia architecto laborum eligendi maiores quam illum quaerat, libero fugiat, odio laboriosam eos veritatis explicabo quos!</p>
+    </aside>
+
+    <section>
+        <h2>This is a Section</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id voluptas doloremque eaque voluptatem natus officia architecto laborum eligendi maiores quam illum quaerat, libero fugiat, odio laboriosam eos veritatis explicabo quos!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id voluptas doloremque eaque voluptatem natus officia architecto laborum eligendi maiores quam illum quaerat, libero fugiat, odio laboriosam eos veritatis explicabo quos!</p>
+    </section>
+
+    <article>
+        <h2>This is an Article</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id voluptas doloremque eaque voluptatem natus officia architecto laborum eligendi maiores quam illum quaerat, libero fugiat, odio laboriosam eos veritatis explicabo quos!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id voluptas doloremque eaque voluptatem natus officia architecto laborum eligendi maiores quam illum quaerat, libero fugiat, odio laboriosam eos veritatis explicabo quos!</p>
+    </article>
+</main>
+
+<footer><h2>Footer</h2></footer>
+ -->
+
+<!-- &[image gallery   -   03:14:13]-->
+<!-- &[icons   -   03:19:50]-->
+<!-- &[flexbox   -   03:28:23]-->
+<!-- &[transformations   -   03:38:23]-->
+<!-- &[animations   -   03:47:23]-->
 <!-- &[icons      -   00:43:43]-->
 <!-- &[transform       -   00:46:45]-->
 <!-- &[animation       -   00:50:54]-->
